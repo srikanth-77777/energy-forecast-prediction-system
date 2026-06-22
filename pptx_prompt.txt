@@ -1,0 +1,173 @@
+Create a professional, modern PowerPoint presentation (PPTX) for an academic research project. Use a dark theme with green/cyan accents. The presentation should have 15-18 slides. Use clean layouts, icons where appropriate, and ensure text is concise with bullet points (not paragraphs).
+
+===== PROJECT DETAILS =====
+
+TITLE: "A Data-Centric Approach to Multi-Region Urban Energy Demand Forecasting Using Ensemble Machine Learning"
+
+AUTHORS:
+- Dr. S Prince Chelladurai (Assistant Professor, Guide)
+- B S Vikash Srikanth (Student)
+- S Ravi Prakash (Student)
+- A Griffin George (Student)
+- J Dharanidharan (Student)
+- Department of Computational Intelligence, SRM Institute of Science and Technology, Chennai, India
+
+===== SLIDE STRUCTURE =====
+
+SLIDE 1 — Title Slide
+- Project title
+- All author names and affiliations
+- University logo placeholder
+- Date: April 2026
+
+SLIDE 2 — Problem Statement
+- Urban energy grids are growing more complex
+- Poor load estimation leads to wasted fuel (overestimate) or blackouts (underestimate)
+- Traditional methods rely on simple historical averages
+- Most ML research over-focuses on model architecture, ignoring data quality
+- Our thesis: Feature engineering matters more than model choice
+
+SLIDE 3 — Objectives
+- Build a 23-feature engineering pipeline capturing temporal, seasonal, and behavioral patterns
+- Train and compare 5 ML models across 5 real-world regional datasets
+- Use leak-free evaluation with GridSearchCV + TimeSeriesSplit
+- Deploy a production-grade interactive forecasting dashboard
+- Demonstrate that data-centric approaches outperform model-centric complexity
+
+SLIDE 4 — Literature Review Summary
+- Early: ARIMA/SARIMA models (stationary assumptions, limited nonlinearity)
+- Mid: SVR, Random Forest (better nonlinear capture)
+- Modern: XGBoost, LightGBM (competition winners, fast training)
+- Deep Learning: LSTM, CNN-LSTM (complex but not always better)
+- Gap: Few studies do multi-region evaluation, rigorous cross-validation, or deploy interactive systems
+- Our contribution: Data-centric pipeline + 5 regions + deployed dashboard
+
+SLIDE 5 — System Architecture (use a flowchart layout)
+Layer 1: Raw Data → 5 PJM Regional CSV Datasets
+Layer 2: Data Pipeline → Cleaning + 23-Feature Engineering
+Layer 3: ML Training → GridSearchCV with TimeSeriesSplit → 5 Models × 5 Regions = 25 Models
+Layer 4: FastAPI Backend → 6 REST API Endpoints + AI Narrative Engine
+Layer 5: Dashboard Frontend → 5 Interactive Pages (Forecaster, Comparison, Explorer, Analytics, Saved Summaries)
+
+SLIDE 6 — Datasets
+Show a table:
+| Region | Records | Date Range | Avg Demand (MW) | Peak Demand (MW) |
+|--------|---------|------------|-----------------|------------------|
+| PJME   | 145,027 | 2002-2018  | 32,081          | 62,009           |
+| AEP    | 120,934 | 2004-2018  | 15,504          | 25,695           |
+| DAYTON | 120,936 | 2004-2018  | 2,038           | 3,746            |
+| COMED  | 66,158  | 2011-2018  | 11,416          | 23,753           |
+| DOM    | 115,850 | 2005-2018  | 10,956          | 21,651           |
+- Source: PJM Interconnection (US Eastern Grid)
+- Chronological 80/20 train-test split
+
+SLIDE 7 — Feature Engineering (23 Features)
+Show 6 categories in a visual grid:
+1. Basic Temporal (6): hour, day_of_week, month, quarter, day_of_year, week_of_year
+2. Cyclical Encoding (6): sin/cos transforms for hour, day_of_week, month — preserves circular continuity
+3. Binary Flags (5): is_weekend, is_peak, is_summer, is_winter, is_holiday
+4. Historical Lags (2): lag_24h (same hour yesterday), lag_168h (same hour last week)
+5. Rolling Statistics (3): rolling_mean_24h, rolling_std_24h, rolling_mean_168h — shifted to prevent leakage
+6. Interaction (1): hour × weekend — captures different daily curves on weekends vs weekdays
+
+SLIDE 8 — Data Leakage Discovery (IMPORTANT SLIDE - highlight this)
+- Initial features included lag_1h, lag_2h, lag_1h_diff
+- Result: R² = 0.9999 (seemed perfect!)
+- Problem: Demand barely changes hour-to-hour, so model just memorized "same as last hour"
+- This is DATA LEAKAGE — the model had access to information it wouldn't have in real forecasting
+- Fix: Removed short-term lags, shifted rolling windows
+- New honest R²: ~0.86 (genuine predictive ability)
+- Lesson: Always verify what information is available at inference time
+
+SLIDE 9 — Models Used
+Show 5 models with brief descriptions:
+1. Linear Regression — Simple baseline, tests feature quality alone
+2. Random Forest — Bagged ensemble of decision trees, robust to overfitting
+3. Gradient Boosting — Sequential ensemble, each tree corrects previous errors
+4. XGBoost — Optimized gradient boosting with regularization
+5. LightGBM — Histogram-based splitting, fastest training time
+- All tuned via GridSearchCV with 3-fold TimeSeriesSplit (leak-free cross-validation)
+
+SLIDE 10 — Results Table (KEY SLIDE)
+Full results table:
+| Region | Model | R² | RMSE (MW) | MAE (MW) | MAPE (%) |
+|--------|-------|----|-----------|----------|----------|
+| PJME | Linear Regression | 0.8517 | 2,500 | 1,883 | 6.01% |
+| PJME | Random Forest | 0.8610 | 2,420 | 1,768 | 5.59% |
+| PJME | **Gradient Boosting** | **0.8647** | **2,388** | 1,770 | 5.61% |
+| PJME | XGBoost | 0.8644 | 2,390 | 1,771 | 5.62% |
+| PJME | LightGBM | 0.8645 | 2,390 | 1,771 | 5.62% |
+| AEP | **XGBoost** | **0.8524** | **940** | 720 | 4.91% |
+| DAYTON | **XGBoost** | **0.8620** | **140** | 105 | 5.23% |
+| COMED | **XGBoost** | **0.8303** | **905** | 608 | 5.19% |
+| DOM | **Gradient Boosting** | **0.8038** | **1,097** | 806 | 7.05% |
+
+SLIDE 11 — Best Model Per Region
+Show a summary:
+| Region | Best Model | R² Score |
+|--------|-----------|----------|
+| PJME | Gradient Boosting | 0.8647 |
+| AEP | XGBoost | 0.8524 |
+| DAYTON | XGBoost | 0.8620 |
+| COMED | XGBoost | 0.8303 |
+| DOM | Gradient Boosting | 0.8038 |
+Key insight: XGBoost and Gradient Boosting consistently win. Even Linear Regression achieves R² > 0.80 thanks to strong feature engineering.
+
+SLIDE 12 — Dashboard Demo (Screenshots placeholder)
+Show placeholder boxes for 4 screenshots:
+1. Forecaster Page — 48h history + 24h forecast chart with AI narrative
+2. Model Comparison Page — Side-by-side R², RMSE charts for all 5 models
+3. Data Explorer — Historical timeline with distribution histogram
+4. Analytics — Hourly/weekly/monthly/yearly demand patterns
+- Built with FastAPI + Vanilla JS + Chart.js
+- 6 REST API endpoints, real-time predictions
+
+SLIDE 13 — Simulation Features
+Two interactive simulators built into the dashboard:
+1. Holiday Simulator: Flips is_holiday flag → model naturally predicts lower demand based on learned holiday patterns (typically 10-20% drop)
+2. Grid Outage Simulator: Forces actual demand down by 35% → AI narrative detects massive error and triggers critical anomaly alert
+- Purpose: Operator training, stress-testing, what-if analysis
+
+SLIDE 14 — AI Demand Narrative Engine
+- Auto-generated 5+ sentence contextual report after every prediction
+- Describes: grid phase (morning ramp-up, midday peak, etc.), weekday/weekend context, predicted vs actual values, error diagnosis, monitoring recommendations
+- Anomaly mode: Triggers red alert for errors > 25%, diagnoses potential blackout or infrastructure failure
+- Bridge between mathematical output and operational decision-making
+
+SLIDE 15 — Advantages
+- Honest evaluation (no data leakage, TimeSeriesSplit)
+- Multi-region generalizability (5 diverse regions, 2K-32K MW scale)
+- Interpretable models (tree-based, no black boxes)
+- Production-ready deployment (FastAPI + web dashboard)
+- Interactive scenario simulation (holiday + outage)
+- Automated prediction logging (Saved Summaries with localStorage)
+
+SLIDE 16 — Limitations
+- No weather/temperature data (biggest missing driver)
+- Single-step evaluation (doesn't test recursive multi-step accuracy)
+- No extreme event modeling (heatwaves, pandemics)
+- Static training (no online learning or auto-retraining)
+- Limited to US Eastern grid (PJM territory only)
+
+SLIDE 17 — Future Work
+1. Integrate hourly weather data (temperature, humidity, solar) — expected +5-10% R² improvement
+2. Compare with LSTM and Transformer architectures on same feature set
+3. Add probabilistic forecasting (prediction intervals, not just point estimates)
+4. Real-time streaming pipeline for operational control rooms
+5. Federated learning across multiple utilities for privacy-preserving collaborative training
+
+SLIDE 18 — Thank You / Q&A
+- Project title
+- Key takeaway: "In energy forecasting, the data matters more than the model."
+- Contact emails of all team members
+- GitHub/demo link placeholder
+
+===== DESIGN INSTRUCTIONS =====
+- Use a dark background (dark navy or black) with green (#00E676) and cyan (#06B6D4) accent colors
+- Use clean sans-serif fonts (Calibri, Segoe UI, or similar)
+- Tables should have alternating row shading for readability
+- Use icons/emojis for visual appeal where appropriate
+- Bold the best values in results tables
+- Keep bullet points short (max 2 lines each)
+- Add slide numbers at the bottom
+- Make charts/placeholders clearly labeled for where screenshots will go

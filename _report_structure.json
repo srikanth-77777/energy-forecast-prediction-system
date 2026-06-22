@@ -1,0 +1,2987 @@
+[
+  {
+    "idx": 0,
+    "style": "Normal",
+    "text": "Lung Cancer Detection and Multi-Class Classification\nUsing CT Images with Explainable AI Diagnosis"
+  },
+  {
+    "idx": 2,
+    "style": "Body Text",
+    "text": "21CSP302L- PROJECT"
+  },
+  {
+    "idx": 4,
+    "style": "Heading 4",
+    "text": "Submitted by"
+  },
+  {
+    "idx": 6,
+    "style": "Body Text",
+    "text": "B S VIKASHSRIKANTH [RA2311026010583]"
+  },
+  {
+    "idx": 7,
+    "style": "Body Text",
+    "text": "S RAVI PRAKASH [RA2311026010591]"
+  },
+  {
+    "idx": 9,
+    "style": "Heading 4",
+    "text": "Under the Guidance of"
+  },
+  {
+    "idx": 11,
+    "style": "Normal",
+    "text": "Dr. N Gopinath"
+  },
+  {
+    "idx": 13,
+    "style": "Body Text",
+    "text": "Assisstant Professor, Department of Computational Intelligence"
+  },
+  {
+    "idx": 15,
+    "style": "Heading 3",
+    "text": "in partial fulfillment of the requirements for the degree of"
+  },
+  {
+    "idx": 17,
+    "style": "Heading 2",
+    "text": "BACHELOR OF TECHNOLOGY"
+  },
+  {
+    "idx": 18,
+    "style": "Heading 2",
+    "text": "in"
+  },
+  {
+    "idx": 19,
+    "style": "Heading 2",
+    "text": "COMPUTER SCIENCE ENGINEERING"
+  },
+  {
+    "idx": 20,
+    "style": "Heading 2",
+    "text": "with specialization in AIML"
+  },
+  {
+    "idx": 24,
+    "style": "Heading 2",
+    "text": "DEPARTMENT OF COMPUTATIONAL INTELLIGENCE COLLEGE OF ENGINEERING AND TECHNOLOGY"
+  },
+  {
+    "idx": 25,
+    "style": "Normal",
+    "text": "SRM INSTITUTE OF SCIENCE AND TECHNOLOGY"
+  },
+  {
+    "idx": 26,
+    "style": "Heading 2",
+    "text": "KATTANKULATHUR- 603 203"
+  },
+  {
+    "idx": 28,
+    "style": "Heading 3",
+    "text": "MAY  2026"
+  },
+  {
+    "idx": 30,
+    "style": "Body Text",
+    "text": "Department of Computational Intelligence"
+  },
+  {
+    "idx": 31,
+    "style": "Heading 5",
+    "text": "SRM Institute of Science & Technology"
+  },
+  {
+    "idx": 32,
+    "style": "Heading 5",
+    "text": "Own Work Declaration Form"
+  },
+  {
+    "idx": 36,
+    "style": "Heading 5",
+    "text": "Degree/ Course\t: B.TECH/ CSE with specialization in AIML"
+  },
+  {
+    "idx": 38,
+    "style": "Normal",
+    "text": "Student Name\t: B S VIKASHSRIKANTH, S RAVI PRAKASH"
+  },
+  {
+    "idx": 40,
+    "style": "Heading 5",
+    "text": "Registration Number\t: RA2311026010583 , RA2311026010591"
+  },
+  {
+    "idx": 42,
+    "style": "Normal",
+    "text": "Title Work                             : Lung Cancer Detection and Multi-Class Classification\n                                                                              Using CT Images with Explainable AI Diagnosis"
+  },
+  {
+    "idx": 45,
+    "style": "Body Text",
+    "text": "I / We hereby certify that this assessment compiles with the University’s Rules and Regulations relating to Academic misconduct and plagiarism, as listed in the University Website, Regulations, and the Education Committee guidelines."
+  },
+  {
+    "idx": 47,
+    "style": "Body Text",
+    "text": "I / We confirm that all the work contained in this assessment is my / our own except where indicated, and that I / We have met the following conditions:"
+  },
+  {
+    "idx": 49,
+    "style": "List Paragraph",
+    "text": "Clearly referenced / listed all sources as appropriate"
+  },
+  {
+    "idx": 50,
+    "style": "List Paragraph",
+    "text": "Referenced and put in inverted commas all quoted text (from books, web, etc)"
+  },
+  {
+    "idx": 51,
+    "style": "List Paragraph",
+    "text": "Given the sources of all pictures, data etc. that are not my own"
+  },
+  {
+    "idx": 52,
+    "style": "List Paragraph",
+    "text": "Not made any use of the report(s) or essay(s) of any other student(s) either past or present"
+  },
+  {
+    "idx": 53,
+    "style": "List Paragraph",
+    "text": "Acknowledged in appropriate places any help that I have received from others (e.g. fellow students, technicians, statisticians, external sources)"
+  },
+  {
+    "idx": 54,
+    "style": "List Paragraph",
+    "text": "Compiled with any other plagiarism criteria specified in the Course handbook / University website"
+  },
+  {
+    "idx": 55,
+    "style": "Body Text",
+    "text": "I understand that any false claim for this work will be penalized in accordance with the University policies and regulations."
+  },
+  {
+    "idx": 63,
+    "style": "Body Text",
+    "text": "ii"
+  },
+  {
+    "idx": 70,
+    "style": "Heading 1",
+    "text": "SRM INSTITUTE OF SCIENCE AND TECHNOLOGY KATTANKULATHUR – 603 203"
+  },
+  {
+    "idx": 72,
+    "style": "Heading 2",
+    "text": "BONAFIDE CERTIFICATE"
+  },
+  {
+    "idx": 77,
+    "style": "Normal",
+    "text": "Certified that 21CSP302L - Project report titled “Lung  Cancer Detection and Multi-Class Classification Using CT Images with Explainable AI Diagnosis” is the bonafide work of “B S VIKASHSRIKANTH [RA2311026010583], S RAVI PRAKASH [RA2311026010591]” who carried out the project work under my supervision. Certified further, that to the best of my knowledge the work reported herein does not form any other project report or dissertation on the basis of which a degree or award was conferred on an earli"
+  },
+  {
+    "idx": 92,
+    "style": "Table Paragraph",
+    "text": "EXAMINER 1                                                                                            EXAMINER 2"
+  },
+  {
+    "idx": 93,
+    "style": "Table Paragraph",
+    "text": "Name & Signature\t\t\t\t\t\t          Name & Signature"
+  },
+  {
+    "idx": 99,
+    "style": "Heading 3",
+    "text": "iii"
+  },
+  {
+    "idx": 103,
+    "style": "Normal",
+    "text": "ACKNOWLEDGEMENTS"
+  },
+  {
+    "idx": 105,
+    "style": "Normal",
+    "text": "We express our humble gratitude to Dr. C. Muthamizhchelvan, Vice-Chancellor, SRM Institute of Science      and Technology, for the facilities extended for the project work and his continued support."
+  },
+  {
+    "idx": 107,
+    "style": "Normal",
+    "text": "We extend our sincere thanks to Dr. Leenus Jesu Martin M, Dean-CET, SRM Institute of Science and Technology, for his invaluable support."
+  },
+  {
+    "idx": 109,
+    "style": "Normal",
+    "text": "We wish to thank Dr. Revathi Venkataraman, Professor and Chairperson, School of Computing, SRM Institute of Science and Technology, for her support throughout the project work."
+  },
+  {
+    "idx": 111,
+    "style": "Normal",
+    "text": "We encompass our sincere thanks to,School of Computing and Dr.C. Lakshmi, Professor and Associate Chairperson -AI, School of Computing, SRM Institute of Science and Technology, for their invaluable support."
+  },
+  {
+    "idx": 113,
+    "style": "Normal",
+    "text": "We are incredibly grateful to our Head of the Department, Dr. R. Annie Uthra, Professor, Department of Computational Intelligence, SRM Institute of Science and Technology, for her suggestions and encouragement at all the stages of the project work."
+  },
+  {
+    "idx": 115,
+    "style": "Normal",
+    "text": "We want to convey our thanks to our Project Coordinators, Panel Head, and Panel Members Department of Computational Intelligence, SRM Institute of Science and Technology, for their inputs during the project reviews and support."
+  },
+  {
+    "idx": 117,
+    "style": "Normal",
+    "text": "We register our immeasurable thanks to our Faculty Advisor, Dr. N. Kanimozhi, Department of Computational Intelligence, SRM Institute of Science and Technology, for leading and helping us to complete our course."
+  },
+  {
+    "idx": 119,
+    "style": "Normal",
+    "text": "Our inexpressible respect and thanks to our guide, Dr. N Gopinath, Department of  Computational Intelligence,  SRM Institute of Science and Technology, for providing us with an opportunity to pursue our project under his / her mentorship. He / She provided us with the freedom and support to explore the research topics of our interest. His / Her passion for solving problems and making a difference in the world has always been inspiring."
+  },
+  {
+    "idx": 121,
+    "style": "Normal",
+    "text": "We sincerely thank all the staff members of  Computational Intelligence, School of Computing, S.R.M Institute of Science and Technology, for their help during our project. Finally, we would like to thank our parents, family members, and friends for their unconditional love, constant support and encouragement"
+  },
+  {
+    "idx": 127,
+    "style": "Normal",
+    "text": "Authors"
+  },
+  {
+    "idx": 128,
+    "style": "Normal",
+    "text": "iv"
+  },
+  {
+    "idx": 132,
+    "style": "Normal",
+    "text": "ABSTRACT"
+  },
+  {
+    "idx": 134,
+    "style": "Normal",
+    "text": "In the global picture, lung cancer remains the leading cause of mortality from cancers. While artificial intelligence algorithms have shown immense promise when it comes to automatic image analyses in medical imaging, the gap between their output and clinicians' confidence remains huge.Modern solutions based on AI are often treated as black boxes since they give the classification results without explanations related to categorization and geography of the occurrence. Also, not all models can giv"
+  },
+  {
+    "idx": 144,
+    "style": "Body Text",
+    "text": "v"
+  },
+  {
+    "idx": 146,
+    "style": "Body Text",
+    "text": "TABLE OF CONTENTS"
+  },
+  {
+    "idx": 147,
+    "style": "Normal",
+    "text": "ABSTRACT\t\t\t\t\t\t\t\t\t\t           v"
+  },
+  {
+    "idx": 149,
+    "style": "Normal",
+    "text": "TABLE OF CONTENTS\t\t\t\t\t\t\t                        vi"
+  },
+  {
+    "idx": 151,
+    "style": "Normal",
+    "text": "LIST OF FIGURES\t\t\t\t\t\t\t\t\t           viii"
+  },
+  {
+    "idx": 153,
+    "style": "Normal",
+    "text": "LIST OF TABLES\t\t\t\t\t\t\t\t\t           ix"
+  },
+  {
+    "idx": 155,
+    "style": "Normal",
+    "text": "ABBREVIATIONS\t\t\t                                                                                  x"
+  },
+  {
+    "idx": 157,
+    "style": "Normal",
+    "text": "CHAPTER \t\t\t          TITLE \t\t\t\t\t\t       PAGE"
+  },
+  {
+    "idx": 158,
+    "style": "Normal",
+    "text": "NO.\t\t\t\t\t\t\t\t\t\t\t           NO."
+  },
+  {
+    "idx": 160,
+    "style": "Normal",
+    "text": "1\tINTRODUCTION"
+  },
+  {
+    "idx": 161,
+    "style": "List Paragraph",
+    "text": "Introduction to Project\t\t\t\t\t\t\t\t1"
+  },
+  {
+    "idx": 162,
+    "style": "List Paragraph",
+    "text": "Problem Statement and Description\t\t\t\t\t            \t1"
+  },
+  {
+    "idx": 163,
+    "style": "List Paragraph",
+    "text": "Motivation\t\t\t\t\t\t\t\t\t\t3"
+  },
+  {
+    "idx": 164,
+    "style": "List Paragraph",
+    "text": "Sustainable Development Goal of the Project\t\t\t\t\t4"
+  },
+  {
+    "idx": 165,
+    "style": "Normal",
+    "text": "2\tLITERATURE SURVEY"
+  },
+  {
+    "idx": 166,
+    "style": "Normal",
+    "text": "2.1 Overview of the Research Area\t\t\t\t\t\t\t\t6"
+  },
+  {
+    "idx": 167,
+    "style": "Normal",
+    "text": "2.2 Existing Models and Frameworks\t\t\t\t\t\t\t6"
+  },
+  {
+    "idx": 168,
+    "style": "Normal",
+    "text": "2.3 Limitations Identified from Literature Survey (Research Gaps)\t\t\t7"
+  },
+  {
+    "idx": 169,
+    "style": "Normal",
+    "text": "2.4 Research Objectives\t\t\t\t\t\t\t\t\t8"
+  },
+  {
+    "idx": 170,
+    "style": "Normal",
+    "text": "2.5 Product Backlog (Key user stories with Desired outcomes)\t\t\t   \t9"
+  },
+  {
+    "idx": 171,
+    "style": "Normal",
+    "text": "2.5 Plan of Action (Project Road Map)                                                                              9"
+  },
+  {
+    "idx": 173,
+    "style": "Normal",
+    "text": "3   SPRINT PLANNING AND EXECTION METHODOLOGY"
+  },
+  {
+    "idx": 174,
+    "style": "Normal",
+    "text": "3.1 SPRINT I [Image Preprocessing & Hierarchical Classification]"
+  },
+  {
+    "idx": 175,
+    "style": "Normal",
+    "text": "3.1.1 Objectives with user stories of Sprint I\t\t\t\t\t\t11"
+  },
+  {
+    "idx": 176,
+    "style": "Normal",
+    "text": "3.1.2 Functional Document\t\t\t\t\t\t\t\t12"
+  },
+  {
+    "idx": 177,
+    "style": "Normal",
+    "text": "3.1.3 Architecture Document\t\t\t\t\t\t\t\t13"
+  },
+  {
+    "idx": 178,
+    "style": "Normal",
+    "text": "3.1.4 Outcome of objectives/ Result Analysis\t\t\t\t\t\t24"
+  },
+  {
+    "idx": 179,
+    "style": "Normal",
+    "text": "3.1.5 Sprint Retrospective\t\t\t\t\t\t\t\t15"
+  },
+  {
+    "idx": 182,
+    "style": "Normal",
+    "text": "vi"
+  },
+  {
+    "idx": 190,
+    "style": "Normal",
+    "text": "3.2 SPRINT II  [XAI Integration & Clinical Narrative Engine]"
+  },
+  {
+    "idx": 191,
+    "style": "Normal",
+    "text": "3.2.1 Objectives with user stories of Sprint II\t\t\t\t\t16"
+  },
+  {
+    "idx": 192,
+    "style": "Normal",
+    "text": "3.2.2 Functional Document\t\t\t\t\t\t\t\t17"
+  },
+  {
+    "idx": 193,
+    "style": "Normal",
+    "text": "3.2.3 Architecture Document\t\t\t\t\t\t\t\t18"
+  },
+  {
+    "idx": 194,
+    "style": "Normal",
+    "text": "3.2.4 Outcome of objectives/ Result Analysis\t\t\t\t\t\t18"
+  },
+  {
+    "idx": 195,
+    "style": "Normal",
+    "text": "3.2.5 Sprint Retrospective\t\t\t\t\t\t\t\t19"
+  },
+  {
+    "idx": 197,
+    "style": "Normal",
+    "text": "4    RESULTS AND DISCUSSIONS"
+  },
+  {
+    "idx": 198,
+    "style": "Normal",
+    "text": "4.1 Project Outcomes (Performance Evaluation)                                                             20"
+  },
+  {
+    "idx": 199,
+    "style": "Normal",
+    "text": "4.2 Image Preprocessing Evaluation\t22"
+  },
+  {
+    "idx": 200,
+    "style": "Normal",
+    "text": "4.3 Validation of Grad-CAM Explainability\t23"
+  },
+  {
+    "idx": 201,
+    "style": "Normal",
+    "text": "4.4   LIME Analysis evaluation\t24"
+  },
+  {
+    "idx": 202,
+    "style": "Normal",
+    "text": "4.5 AI narrative engine\t26"
+  },
+  {
+    "idx": 203,
+    "style": "Normal",
+    "text": "5    CONCLUSION AND FUTURE ENHANCEMENT\t\t\t\t\t27"
+  },
+  {
+    "idx": 204,
+    "style": "Normal",
+    "text": "REFERENCES\t\t\t\t\t\t\t\t\t\t30"
+  },
+  {
+    "idx": 205,
+    "style": "Normal",
+    "text": "APPENDIX\t\t\t\t\t\t\t\t\t\t\t31"
+  },
+  {
+    "idx": 206,
+    "style": "Normal",
+    "text": "A  CODING\t\t\t\t\t\t\t\t\t\t\t31"
+  },
+  {
+    "idx": 207,
+    "style": "Normal",
+    "text": "B JOURNAL DETAILS\t\t\t\t\t\t\t\t            36"
+  },
+  {
+    "idx": 208,
+    "style": "Normal",
+    "text": "C  PLAGIARISM REPORT\t\t\t\t\t\t\t\t37"
+  },
+  {
+    "idx": 209,
+    "style": "Normal",
+    "text": "D   AI REPORT                                                                                                                    38"
+  },
+  {
+    "idx": 210,
+    "style": "Normal",
+    "text": "E PUBLICATION DETAILS\t\t\t\t                                                39"
+  },
+  {
+    "idx": 230,
+    "style": "Normal",
+    "text": "vii"
+  },
+  {
+    "idx": 236,
+    "style": "Normal",
+    "text": "LIST OF FIGURES"
+  },
+  {
+    "idx": 238,
+    "style": "Normal",
+    "text": "CHAPTER \t\t\t TITLE \t\t\t\t\t\t       PAGE"
+  },
+  {
+    "idx": 239,
+    "style": "Normal",
+    "text": "NO.\t\t\t\t\t\t\t\t\t\t\t           NO."
+  },
+  {
+    "idx": 241,
+    "style": "Normal",
+    "text": "1.1\tSystem Architecture — Hierarchical Lung Diagnostic Pipeline . . . . . . . . . .                        3"
+  },
+  {
+    "idx": 242,
+    "style": "Normal",
+    "text": "1.2\tIn Deep Pipeline of System Architecture. . . . . . . . . .                                                      5"
+  },
+  {
+    "idx": 243,
+    "style": "Normal",
+    "text": "2.1\tA normal CT scanned Image  . . . . . . . . . .                                                                             7"
+  },
+  {
+    "idx": 244,
+    "style": "Normal",
+    "text": "2.2\tImage Preprocessing Pipeline (Median Blur → CLAHE → Morphology). . . . . . .              8"
+  },
+  {
+    "idx": 245,
+    "style": "Normal",
+    "text": "3.1\tTraining and Validation Accuracy for Sector 1 Subtype Classification. . . .           14"
+  },
+  {
+    "idx": 246,
+    "style": "Normal",
+    "text": "3.2\tAccuracy metrics for Sector 2 Malignancy Detection using the LIDC-IDRI. . . . .. 19"
+  },
+  {
+    "idx": 247,
+    "style": "Normal",
+    "text": "4.1\tSystem Implementation Screenshot showing Subtype Identification. . . . .               30"
+  },
+  {
+    "idx": 248,
+    "style": "Normal",
+    "text": "4.2\tfrom a normal ct image to gead cam observed ct image. . . . . . . . . .                           25"
+  },
+  {
+    "idx": 249,
+    "style": "Normal",
+    "text": "4.3\tWeb Dashboard — Sector 2 (Malignancy Detection) . . . . . . . . . .                                      26"
+  },
+  {
+    "idx": 274,
+    "style": "Normal",
+    "text": "viii"
+  },
+  {
+    "idx": 277,
+    "style": "Normal",
+    "text": "LIST OF TABLES"
+  },
+  {
+    "idx": 280,
+    "style": "Normal",
+    "text": "CHAPTER \t\t\t TITLE \t\t\t\t\t\t        PAGE"
+  },
+  {
+    "idx": 281,
+    "style": "Normal",
+    "text": "NO.\t\t\t\t\t\t\t\t\t\t            NO."
+  },
+  {
+    "idx": 282,
+    "style": "Normal",
+    "text": "3.1\tSprint I Functional Test Cases . . . . . . . . . .                                                                12"
+  },
+  {
+    "idx": 283,
+    "style": "Normal",
+    "text": "3.2\tSprint I Classification Metrics . . . . . . . . . .                                                                14"
+  },
+  {
+    "idx": 284,
+    "style": "Normal",
+    "text": "3.3\tSprint I Retrospective . . . . . . . . . .                                                                             15"
+  },
+  {
+    "idx": 285,
+    "style": "Normal",
+    "text": "3.4         Overall recal and f1 score . . . . .                                                                                15"
+  },
+  {
+    "idx": 286,
+    "style": "Normal",
+    "text": "3.5\tSprint II Functional Test Cases . . . . . . . . . .                                                              17"
+  },
+  {
+    "idx": 287,
+    "style": "Normal",
+    "text": "3.6\tSprint II Retrospective . . . . . . . . . .                                                                           19"
+  },
+  {
+    "idx": 288,
+    "style": "Normal",
+    "text": "4.1\tPer-Class Performance — Sector 1 (4-Class Classifier). . . .                       20"
+  },
+  {
+    "idx": 289,
+    "style": "Normal",
+    "text": "4.2\tHeatmap Analysis — Sample Results . . . . . . . . . .                                          24"
+  },
+  {
+    "idx": 314,
+    "style": "Normal",
+    "text": "ix"
+  },
+  {
+    "idx": 321,
+    "style": "Normal",
+    "text": "ABBREVIATIONS"
+  },
+  {
+    "idx": 324,
+    "style": "Normal",
+    "text": "CT\t\tComputed Tomography"
+  },
+  {
+    "idx": 325,
+    "style": "Normal",
+    "text": "CNN\t\tConvolutional Neural Network"
+  },
+  {
+    "idx": 326,
+    "style": "Normal",
+    "text": "ResNet\t\tResidual Network"
+  },
+  {
+    "idx": 327,
+    "style": "Normal",
+    "text": "XAI\t\tExplainable Artificial Intelligence"
+  },
+  {
+    "idx": 328,
+    "style": "Normal",
+    "text": "Grad-CAM\tGradient-weighted Class Activation Mapping"
+  },
+  {
+    "idx": 329,
+    "style": "Normal",
+    "text": "LIME\t\tLocal Interpretable Model-agnostic Explanations"
+  },
+  {
+    "idx": 330,
+    "style": "Normal",
+    "text": "CLAHE\tContrast Limited Adaptive Histogram Equalization"
+  },
+  {
+    "idx": 331,
+    "style": "Normal",
+    "text": "LIDC-IDRI\tLung Image Database Consortium and Image Database Resource Initiative"
+  },
+  {
+    "idx": 332,
+    "style": "Normal",
+    "text": "NSCLC\tNon-Small Cell Lung Cancer"
+  },
+  {
+    "idx": 333,
+    "style": "Normal",
+    "text": "VATS\t\tVideo-Assisted Thoracoscopic Surgery"
+  },
+  {
+    "idx": 334,
+    "style": "Normal",
+    "text": "PET\t\tPositron Emission Tomography"
+  },
+  {
+    "idx": 335,
+    "style": "Normal",
+    "text": "SVC\t\tSuperior Vena Cava"
+  },
+  {
+    "idx": 336,
+    "style": "Normal",
+    "text": "EGFR\t\tEpidermal Growth Factor Receptor"
+  },
+  {
+    "idx": 337,
+    "style": "Normal",
+    "text": "ALK\t\tAnaplastic Lymphoma Kinase"
+  },
+  {
+    "idx": 338,
+    "style": "Normal",
+    "text": "PD-L1\t\tProgrammed Death-Ligand 1"
+  },
+  {
+    "idx": 339,
+    "style": "Normal",
+    "text": "SMOTE\tSynthetic Minority Oversampling Technique"
+  },
+  {
+    "idx": 340,
+    "style": "Normal",
+    "text": "API\t\tApplication Programming Interface"
+  },
+  {
+    "idx": 341,
+    "style": "Normal",
+    "text": "GPU\t\tGraphics Processing Unit"
+  },
+  {
+    "idx": 342,
+    "style": "Normal",
+    "text": "CUDA\t\tCompute Unified Device Architecture"
+  },
+  {
+    "idx": 346,
+    "style": "Normal",
+    "text": "CHAPTER 1"
+  },
+  {
+    "idx": 347,
+    "style": "Normal",
+    "text": "INTRODUCTION"
+  },
+  {
+    "idx": 350,
+    "style": "List Paragraph",
+    "text": "Introduction to Project"
+  },
+  {
+    "idx": 351,
+    "style": "List Paragraph",
+    "text": "Cancer of the lungs is the most frequent cause of death from cancer in the world, and should the disease not be detected in its early stages, it is known to develop rapidly because of its high level of heterogeneity. It is important today to identify specific subtypes of the disease in order to determine what kind of treatment options to apply, since there has been a change in diagnosis from a general one to precision medicine. This has always involved an analysis of the images from the CT scan "
+  },
+  {
+    "idx": 352,
+    "style": "List Paragraph",
+    "text": "In recent times, CNNs have been used as effective models for automatically performing analyses of medical images and even outperforming humans in terms of localized detection capabilities. However, there is still the issue of lack of transparency when using AI in such an important field like healthcare. It would be difficult to use an automated diagnosis tool when one cannot explain where it got the results from, especially because they might be concerned about the source of the findings. Additi"
+  },
+  {
+    "idx": 353,
+    "style": "List Paragraph",
+    "text": "In view of overcoming these limitations, this paper recommends an integrated two-tier approach for the AI diagnostic solution proposed here. Firstly, we implement ResNet50 in the formation of a hierarchical classifier to classify sub-type categorization and malignancy assessment. Secondly, a dual modal explainable mechanism comprising both LIME and Grad-CAM is put forth as the second tier. The dual modal model has been enhanced by automating the clinical narrative generator for zone-wise diagnos"
+  },
+  {
+    "idx": 355,
+    "style": "List Paragraph",
+    "text": "Problem Statement and Description"
+  },
+  {
+    "idx": 356,
+    "style": "List Paragraph",
+    "text": "There are three main problems associated with modern AI lung cancer diagnosis technologies: first, these systems operate like \"black boxes,\" not providing textual or graphical explanations for their diagnoses; second, they can only provide a binary decision about whether there is cancer or no cancer, lacking an ability to conduct histological subtyping; and third, they cannot generate any meaningful reports with reference to anatomical regions."
+  },
+  {
+    "idx": 359,
+    "style": "List Paragraph",
+    "text": "1"
+  },
+  {
+    "idx": 362,
+    "style": "List Paragraph",
+    "text": "This technique can overcome the shortcomings stated above through the introduction of a multiple-stage classification system that utilizes the concept of bi-modal explainability. In the first sector, the utilization of ResNet50 to achieve an accuracy level of 95% across four categories of histology subtypes (Adenocarcinoma, Squamous Cell, Large Cell, Normal) is used. The second sector utilizes the binary classifier for detecting whether the image is benign or malignant."
+  },
+  {
+    "idx": 363,
+    "style": "List Paragraph",
+    "text": "With regard to anatomical zones, these systems are not capable of providing any meaningful output. In conventional radiological assessment, the diagnosis is made by analyzing the findings in terms of the following anatomical zones: upper lobe, middle lobe, lower lobe, hilar zone, mediastinal area, and pleura. The referring physician is able to schedule surgery, follow up on the progress of the disease, and correlate imaging findings with patient symptoms because of this information based on anat"
+  },
+  {
+    "idx": 364,
+    "style": "List Paragraph",
+    "text": "In this regard, this paper proposes a multi-level classification algorithm that exploits the concept of bi-modal explainability in order to address the above-stated limitations. The first layer of the model is based on ResNet50 architecture, which is trained using ImageNet weights, and the images obtained from the database of histopathology images are used to train the network. It should be noted that there are four types of histological subtypes, namely Adenocarcinoma, Squamous Cell Carcinoma, "
+  },
+  {
+    "idx": 365,
+    "style": "List Paragraph",
+    "text": "Whereas the treatment for squamous cell carcinoma will include immunotherapy by using drugs such as pembrolizumab, the diagnosis of adenocarcinoma will require tests for EGFR mutations in addition to the use of drugs like erlotinib and gefitinib in its treatment. In case of such a misdiagnosis or lack of classification of the cancer, there will be chances of incorrect medication, poor efficiency of the drug, and adverse effects for the patient. For this reason, it can be argued that “the “cancer"
+  },
+  {
+    "idx": 372,
+    "style": "List Paragraph",
+    "text": "2"
+  },
+  {
+    "idx": 376,
+    "style": "List Paragraph",
+    "text": "Fig.1.1 System Architecture — Hierarchical Lung Diagnostic Pipeline"
+  },
+  {
+    "idx": 378,
+    "style": "List Paragraph",
+    "text": "Motivation"
+  },
+  {
+    "idx": 379,
+    "style": "List Paragraph",
+    "text": "The widespread incidence of lung cancer throughout the world and the urgent requirement for an AI solution that physicians would trust are the two major reasons motivating this project. About 2.2 million cases of lung cancer are discovered worldwide annually; however, if the cancer is not detected early and classified correctly, then the probability of surviving the condition within five years is dramatically reduced.Three factors primarily motivate this research project. Firstly, treatment effi"
+  },
+  {
+    "idx": 380,
+    "style": "List Paragraph",
+    "text": "Secondly, it is extremely tiring to review hundreds of CT slices daily.The use of both LIME and Grad-CAM within this project addresses this need perfectly as it provides the clinicians with analyses and visualizations that they can review and depend upon.Fourthly, there is a significant incentive for adopting this technology as it promises to make expert diagnostic expertise accessible to anyone."
+  },
+  {
+    "idx": 384,
+    "style": "List Paragraph",
+    "text": "3"
+  },
+  {
+    "idx": 387,
+    "style": "List Paragraph",
+    "text": "Access to professional thoracic radiologists is severely limited in many poor countries. An online platform for an explainable AI diagnostic system would enable remote and disadvantaged hospitals to have access to specialist-level diagnostic expertise and save those who may not live to tell the tale because of misdiagnosis."
+  },
+  {
+    "idx": 389,
+    "style": "List Paragraph",
+    "text": "Sustainable Development Goal of the Project"
+  },
+  {
+    "idx": 390,
+    "style": "List Paragraph",
+    "text": "The third goal set out by the United Nations for sustainable development, \"Good Health and Well-being,\" is directly affected by this project. Through this technology, it aims to reduce mortality and save lives using a tool based on artificial intelligence that helps diagnose and subtype lung cancer earlier and with more precision. The ability to be explained and trusted makes this technology more accessible for use in constrained clinical environments."
+  },
+  {
+    "idx": 391,
+    "style": "List Paragraph",
+    "text": "The effect of this research has direct bearing on Goal 3, also called \"Good Health and Well-being,\" out of the United Nations' Sustainable Development Goals. The targets of Goal 3 include reducing premature mortality rates from NCDs by one-third by means of prevention and treatment until 2030 (Target 3.4). This goal aims to offer individuals good health habits and well-being at all stages in their lives. Target 3.4 includes emphasis on one of the most widespread forms of NCDs, namely, lung cance"
+  },
+  {
+    "idx": 392,
+    "style": "List Paragraph",
+    "text": "Moreover, such an approach also meets the goals outlined under SDG Target 3.8, which aims at achieving universal health coverage, including ensuring access to essential medicines and vaccines that are safe, effective, and affordable. This project ensures that high-end diagnostic services using the latest AI technology can be offered even in poorly equipped clinical settings without access to expensive diagnostic applications and hardware infrastructures by making the diagnostic solution accessib"
+  },
+  {
+    "idx": 393,
+    "style": "List Paragraph",
+    "text": "Furthermore, the proposed project is consistent with SDG Target 3.b, which focuses on the research and development of vaccines and medicines for both communicable and non-communicable diseases prevalent among developing countries. The implementation of this technology will be simpler for restricted clinical application because of its reliability and explainability."
+  },
+  {
+    "idx": 397,
+    "style": "List Paragraph",
+    "text": "4"
+  },
+  {
+    "idx": 403,
+    "style": "Normal",
+    "text": "Fig.1.2 In Deep Pipeline of System Architecture"
+  },
+  {
+    "idx": 405,
+    "style": "List Paragraph",
+    "text": "The double modality approach of explainability brings together the high level of capability of AI and practical use by making sure that even physicians with no familiarity in AI technology can understand, evaluate and take appropriate action based on the AI diagnostic suggestions. In this paper, a two-tier approach for the proposed AI diagnostic solution has been recommended in order to deal with the limitations. Firstly, ResNet50 model is used to develop a hierarchical classifier in order to cl"
+  },
+  {
+    "idx": 421,
+    "style": "Body Text",
+    "text": "5"
+  },
+  {
+    "idx": 425,
+    "style": "Normal",
+    "text": "CHAPTER 2"
+  },
+  {
+    "idx": 426,
+    "style": "Body Text",
+    "text": "LITERATURE SURVEY"
+  },
+  {
+    "idx": 428,
+    "style": "List Paragraph",
+    "text": "Overview of the Research Area"
+  },
+  {
+    "idx": 429,
+    "style": "List Paragraph",
+    "text": "During the last decade, image classification in medicine using deep learning has seen rapid progress. CNNs were initially applied for finding lung nodules where the problem is considered to be binary, whether the nodule is cancerous or not. The results obtained by models like VGG-16 and AlexNet have proven that detection can be automated while achieving performance comparable to that of novice radiologists."
+  },
+  {
+    "idx": 430,
+    "style": "List Paragraph",
+    "text": "With growing expertise in this field, the two key directions were established. Firstly, transfer learning using the ImageNet pretrained architectures like ResNet, DenseNet, and EfficientNet resulted in superior results on small-scale medical datasets thanks to the ability of these networks to learn feature representation based on a large dataset of millions of natural images. Secondly, a shift to more clinically useful task was made: differentiating between histological subtypes such as Adenocar"
+  },
+  {
+    "idx": 432,
+    "style": "List Paragraph",
+    "text": "Existing Models and Frameworks"
+  },
+  {
+    "idx": 433,
+    "style": "Normal (Web)",
+    "text": "The following architectures are well-known in the sphere of lung cancer diagnosis:"
+  },
+  {
+    "idx": 434,
+    "style": "Normal (Web)",
+    "text": "Classification of lung nodules using LIDC-IDRI data set via VGG-16 and ResNet is widely applied and demonstrated 85-92% accuracy in binary problems. But these models offer almost no explainability but through confidence level calculation and do not perform subtypes separation.The DenseNet201 architecture, due to the dense connections of neurons, which were claimed to keep detailed characteristics, was chosen after numerous studies proved higher results for multi-class problem solutions in CT ima"
+  },
+  {
+    "idx": 436,
+    "style": "Normal (Web)",
+    "text": "6"
+  },
+  {
+    "idx": 438,
+    "style": "Normal (Web)",
+    "text": "Yet the problem of training instability and overfitting with medical images of a relatively low quantity remained.To combine high performance with efficient computing, the EfficientNet architecture was suggested. But the method of compound scaling that made the architecture of the EfficientNet possible is not ideal for medical CT images due to the latter's nature.Since it is common that fine-tuned models are better than those trained from scratch, transfer learning using ImageNet pre-trained net"
+  },
+  {
+    "idx": 440,
+    "style": "Normal (Web)",
+    "text": "Fig.2.1 A normal CT scanned Image"
+  },
+  {
+    "idx": 442,
+    "style": "List Paragraph",
+    "text": "Limitations Identified from Literature Survey (Research Gaps)"
+  },
+  {
+    "idx": 443,
+    "style": "Normal (Web)",
+    "text": "First, almost all of the current applications are single task-oriented. In the hierarchical pipeline that mimics the actual clinical decision-making process, they perform either binary classification or multi-classification subtyping but not both.Second, explainability is usually an add-on. Most current applications only deploy one explainable AI technology, which is Grad-CAM; moreover, the heatmap generated is bare of any clinical explanation. In other words, there is not yet any application th"
+  },
+  {
+    "idx": 445,
+    "style": "Normal (Web)",
+    "text": "7"
+  },
+  {
+    "idx": 448,
+    "style": "Normal (Web)",
+    "text": "The heatmap activations have yet to be transformed into clinical notes that contain location-based symptoms, proposed procedures, and treatment options. Finally, there is poor treatment of class imbalance within medical data sets. Biases towards majority classes within models arise due to the inability of current augmentation techniques to account for feature variance within rare subtypes, such as Large Cell Carcinoma.Secondly, there is inadequate consideration of deployment. Without a complete "
+  },
+  {
+    "idx": 450,
+    "style": "Normal (Web)",
+    "text": "Fig.2.2 Image Preprocessing Pipeline (Median Blur → CLAHE → Morphology)"
+  },
+  {
+    "idx": 452,
+    "style": "List Paragraph",
+    "text": "Research Objectives"
+  },
+  {
+    "idx": 453,
+    "style": "Normal (Web)",
+    "text": "• Develop a hierarchy-based classification model using ResNet50 architecture with ≥95% accuracy in four classes histological subtyping."
+  },
+  {
+    "idx": 454,
+    "style": "Normal (Web)",
+    "text": "• Use a two-layer approach for model interpretability in the form of Grad-CAM and LIME."
+  },
+  {
+    "idx": 455,
+    "style": "Normal (Web)",
+    "text": "• Develop a smart clinical narrative generation engine producing location-specific diagnostics for eight anatomical locations."
+  },
+  {
+    "idx": 456,
+    "style": "Normal (Web)",
+    "text": "• Deploy the complete system as a web-based application that can be used in production and offers real-time inference."
+  },
+  {
+    "idx": 457,
+    "style": "Normal (Web)",
+    "text": "8"
+  },
+  {
+    "idx": 460,
+    "style": "List Paragraph",
+    "text": "Product Backlog (Key user stories with Desired outcomes)"
+  },
+  {
+    "idx": 461,
+    "style": "Normal (Web)",
+    "text": "As such, with explainability embedded throughout, the product backlog consisted of a hierarchical diagnostic approach, which would take a general histological subtyping to malignancy classification.Four key modules make up the architecture of this project: (1) Image Preprocessing and Enhancement; (2) Multiclass Classification of Subtypes via ResNet50; (3) Binary Classification for the Detection of Malignancies via another ResNet50; and (4) Two-level Explainable AI Synthesis through Grad-CAM and "
+  },
+  {
+    "idx": 462,
+    "style": "Normal (Web)",
+    "text": "Each of these modules were designed and built over two iterations of sprints.The use of two different ResNet50 classifiers rather than one multi-task classifier is an essential architectural decision. This helps circumvent the inevitable trade-off between multiple tasks in multi-task learning approaches with a shared backbone architecture.Consequently, with the implementation of explainability throughout, the product backlog was comprised of a diagnostic approach in a hierarchical manner, beginn"
+  },
+  {
+    "idx": 463,
+    "style": "List Paragraph",
+    "text": "Plan of Action (Project Road Map)"
+  },
+  {
+    "idx": 464,
+    "style": "List Paragraph",
+    "text": "Sprint I: Hierarchical Classification Engine and Image Preprocessing"
+  },
+  {
+    "idx": 465,
+    "style": "List Paragraph",
+    "text": "• Implement image preprocessing pipeline for CT scans (Median Blur, CLAHE, Morphology)."
+  },
+  {
+    "idx": 466,
+    "style": "List Paragraph",
+    "text": "• Train the ResNet50 4-class subtype classifier model using Kaggle Chest CT data set (target: 95%)."
+  },
+  {
+    "idx": 467,
+    "style": "List Paragraph",
+    "text": "• Train the ResNet50 binary classifier using LIDC-IDRI dataset."
+  },
+  {
+    "idx": 468,
+    "style": "List Paragraph",
+    "text": "• Design a Flask backend with APIs for prediction tasks."
+  },
+  {
+    "idx": 469,
+    "style": "List Paragraph",
+    "text": "• Develop a web dashboard with a dark UI theme having zones for uploading images and result presentation."
+  },
+  {
+    "idx": 470,
+    "style": "List Paragraph",
+    "text": "Preprocessing Pipeline for CT Scan Images"
+  },
+  {
+    "idx": 471,
+    "style": "List Paragraph",
+    "text": "The images obtained from CT scans are preprocessed before being used as input for training and testing of classifiers. The process has three main steps:"
+  },
+  {
+    "idx": 474,
+    "style": "List Paragraph",
+    "text": "9"
+  },
+  {
+    "idx": 477,
+    "style": "List Paragraph",
+    "text": "The image is blurred using median blurring without destroying the edges of the image. The filter used for median blurring is either 3x3 or 5x5 kernels depending on the resolution of the image since anatomical information should not be destroyed when identifying nodules."
+  },
+  {
+    "idx": 478,
+    "style": "List Paragraph",
+    "text": "The contrast of the lung regions having low densities is enhanced and over enhancement avoided at high-density regions through CLAHE which applies operations on the local image tiles rather than performing global operations. The adjustable parameters in CLAHE include clipping limit (clip=2.0) and grid size (grid=8×8)."
+  },
+  {
+    "idx": 479,
+    "style": "List Paragraph",
+    "text": "Sprint II: Clinical Narrative Engine and XAI Integration"
+  },
+  {
+    "idx": 480,
+    "style": "List Paragraph",
+    "text": "• Perform comparison using Dual-CAM to apply Grad-CAM (comparison between predicted vs. counter class)."
+  },
+  {
+    "idx": 481,
+    "style": "List Paragraph",
+    "text": "• Apply the LIME superpixel model-based explanation on both models."
+  },
+  {
+    "idx": 482,
+    "style": "List Paragraph",
+    "text": "• Develop a Heatmap engine having eight zones for analysis (distribution, size, morphology, and position)."
+  },
+  {
+    "idx": 483,
+    "style": "List Paragraph",
+    "text": "• Develop a clinical narrative engine with nine different reports having nine different narratives."
+  },
+  {
+    "idx": 484,
+    "style": "List Paragraph",
+    "text": "• Incorporate the Medical Chatbot and Artificial Intelligence reasoner for generating AI narrative."
+  },
+  {
+    "idx": 485,
+    "style": "List Paragraph",
+    "text": "• Develop a summary report page that can be saved and printed."
+  },
+  {
+    "idx": 486,
+    "style": "List Paragraph",
+    "text": "Dual-CAM: Comparative Analysis between Grad-CAM (Predicted vs. Counter Class)"
+  },
+  {
+    "idx": 487,
+    "style": "List Paragraph",
+    "text": "While conventional Grad-CAM only shows activation for the predicted class, Dual-CAM extends this approach through the generation of two maps:"
+  },
+  {
+    "idx": 488,
+    "style": "List Paragraph",
+    "text": "• Primary CAM: The map showing activation for the predicted class to illustrate what the network used while deciding on the decision."
+  },
+  {
+    "idx": 489,
+    "style": "List Paragraph",
+    "text": "• Counter CAM: The activation map showing what could have been the alternative option (highest probability among others)."
+  },
+  {
+    "idx": 490,
+    "style": "List Paragraph",
+    "text": "It is easier for medical practitioners to identify decision boundaries with such a comparative analysis. This is achieved by running the backward pass twice and overlaying the results on the original image with a diverging color map."
+  },
+  {
+    "idx": 495,
+    "style": "Body Text",
+    "text": "10"
+  },
+  {
+    "idx": 498,
+    "style": "Normal",
+    "text": "CHAPTER 3"
+  },
+  {
+    "idx": 499,
+    "style": "Body Text",
+    "text": "SPRINT PLANNING AND EXECTION METHODOLOGY"
+  },
+  {
+    "idx": 500,
+    "style": "Body Text",
+    "text": "3.1 SPRINT I : Core Infrastructure & Threat Detection Engine"
+  },
+  {
+    "idx": 501,
+    "style": "Heading 2",
+    "text": "3.1.1  Objectives with User Stories of Sprint I"
+  },
+  {
+    "idx": 502,
+    "style": "Heading 2",
+    "text": "Task objective: Develop an end-to-end pipeline to perform binary classification of malignancy, preprocess raw images, classify into four subtypes using histology (accuracy >= 95%), and present results through a Flask online interface."
+  },
+  {
+    "idx": 503,
+    "style": "Heading 2",
+    "text": "User stories:"
+  },
+  {
+    "idx": 504,
+    "style": "Heading 2",
+    "text": "• Story 1: Image Preprocessing Pipeline: To ensure consistency in the features obtained from different CT scanning devices, offer a preprocessing pipeline including median blur (k=3), global histogram equalization, contrast-limited adaptive histogram equalization (clipLimit=2.0, tileGridSize=8×8), and morphological operations."
+  },
+  {
+    "idx": 505,
+    "style": "Heading 2",
+    "text": "• Story 2: 4-Class Subtype Classifier: To classify adenocarcinoma, squamous cell carcinoma, large cell carcinoma, and normal tissues, design a ResNet50 neural network classifier customized for 4 output classes by FC layers (2048→512→4, dropout rate=0.5) using the Kaggle Chest CT data set. Target: Accuracy = 95% to handle class imbalance."
+  },
+  {
+    "idx": 506,
+    "style": "Heading 2",
+    "text": "• Story 3: Binary Malignancy Detector: Build the second model using ResNet50 architecture to perform the Benign/Malignant classification task with the help of the LIDC-IDRI dataset. In this architecture, an additional head FC 2048->512->128->2 and Dropout 0.4/0.3 will be added. Pre-trained weights for this model will be extracted from ImageNet V2."
+  },
+  {
+    "idx": 507,
+    "style": "Heading 2",
+    "text": "• Story 4: Flask Backend & API Architecture: Build a simple Flask backend and API with binary analysis endpoint /analyze/binary, four-class analysis endpoint /analyze/fourclass, and a main endpoint /. It will also incorporate GPU auto-detection mechanism using CUDA/CPU alternative mechanism."
+  },
+  {
+    "idx": 508,
+    "style": "Heading 2",
+    "text": "• Story 5: Web Dashboard Architecture: Build an advanced-level web dashboard with a dark theme design, supporting drag-and-drop images upload feature, having two sectors on the sidebar named as Sector 1 and Sector 2, real-time analysis with loading animations and results displaying, including probability bars and image gallery."
+  },
+  {
+    "idx": 512,
+    "style": "Body Text",
+    "text": "11"
+  },
+  {
+    "idx": 514,
+    "style": "Body Text",
+    "text": "3.1.2 Functional Document (Functional Test Cases)"
+  },
+  {
+    "idx": 515,
+    "style": "Normal",
+    "text": "For Sprint I, I observed the execution of the first step of image classification process. The current architecture can accept CT Scan images through the web interface; preprocess these images using six steps; pass it to two ResNet50 models; and then perform additional processing of the output. Sector 1 classifies the image using the confidence score into any one of the four histological subtypes. On the other hand, Sector 2 processes the image using nodule slices to detect the presence of malign"
+  },
+  {
+    "idx": 516,
+    "style": "Normal",
+    "text": "The web application displays original image, enhanced image, classification output, and probability distribution in tabular form; enables drag-and-drop image uploading; and ensures that inference time does not exceed one second as model weight is loaded at start-up."
+  },
+  {
+    "idx": 517,
+    "style": "Normal",
+    "text": "All functionalities have been tested using the test cases below."
+  },
+  {
+    "idx": 521,
+    "style": "Normal",
+    "text": "Table 3.1: Sprint I Functional Test Cases"
+  },
+  {
+    "idx": 527,
+    "style": "Normal",
+    "text": "12"
+  },
+  {
+    "idx": 530,
+    "style": "Body Text",
+    "text": "3.1.3  Architecture Document\nSprint I is designed based on a modular, hierarchical architecture and uses a Python Flask back-end. This architecture comprises the following components:"
+  },
+  {
+    "idx": 531,
+    "style": "Body Text",
+    "text": "Back-End (Flask):"
+  },
+  {
+    "idx": 532,
+    "style": "Body Text",
+    "text": "This framework manages the HTTP requests and response generation via its internal routing. Flask uses Jinja2 templates for the dashboard and generates the API for analyzing images, namely /analyze/fourclass and /analyze/binary endpoints. The maximum file size limit for the server's multipart form data is set to 16 MB."
+  },
+  {
+    "idx": 533,
+    "style": "Body Text",
+    "text": "Deep Learning Layer:"
+  },
+  {
+    "idx": 534,
+    "style": "Body Text",
+    "text": "At the launch of the application, two ResNet50 networks are initialized within the memory. The four-class subtype model uses the head network (2048→512→4), which was learned from scratch with Kaggle Chest CT data. The binary classification model applies the head network (2048→512→128→2) based on the ImageNet V2 pretrained weights with LIDC-IDRI data. These models were developed within the PyTorch and Torchvision libraries."
+  },
+  {
+    "idx": 535,
+    "style": "Body Text",
+    "text": "Image Pre-processing Layer:"
+  },
+  {
+    "idx": 536,
+    "style": "Body Text",
+    "text": "Every image pre-processing process is carried out using OpenCV. Raw images are first converted from bytes to grayscale, resized to 224x224 pixels, applied median blur, global histogram equalization, CLAHE, and finally morphological opening and closing operations. Applying ImageNet mean and standard deviation statistics, the enhanced grayscale image is replicated to form an RGB stack and normalized."
+  },
+  {
+    "idx": 537,
+    "style": "Body Text",
+    "text": "Front-end Layer:"
+  },
+  {
+    "idx": 538,
+    "style": "Body Text",
+    "text": "This one-page web application was built using HTML5, CSS3, and JavaScript. Fonts such as Space Grotesk and JetBrains Mono are used for the dark theme interface design. The website layout consists of a content div element with CSS transitions and an always-present sidebar with a width of 240 pixels for browsing through sectors."
+  },
+  {
+    "idx": 542,
+    "style": "Body Text",
+    "text": "13"
+  },
+  {
+    "idx": 546,
+    "style": "Heading 2",
+    "text": "3.1.4  Outcome of Objectives / Result Analysis"
+  },
+  {
+    "idx": 547,
+    "style": "Normal",
+    "text": "After applying the SMOTE algorithm training procedure in the feature space to tackle the problem of imbalanced classes in Large Cell Carcinoma classification, the 4-class subtype classification model showed the best accuracy of 95% in Kaggle Chest CT test dataset validation. In turn, the binary malignancy classification model demonstrated its optimal performance when relying on the pretrained ImageNet V2 architecture, which featured good capability in extracting fine details from nodules."
+  },
+  {
+    "idx": 551,
+    "style": "Normal",
+    "text": "Table 3.2: Sprint I Classification Performance"
+  },
+  {
+    "idx": 555,
+    "style": "Normal",
+    "text": "Fig.3.1 Training and Validation Accuracy for Sector 1 Subtype Classification"
+  },
+  {
+    "idx": 556,
+    "style": "Normal",
+    "text": "(95% peak accuracy)."
+  },
+  {
+    "idx": 563,
+    "style": "Normal",
+    "text": "14"
+  },
+  {
+    "idx": 567,
+    "style": "Heading 2",
+    "text": "3.1.5  Sprint Retrospective"
+  },
+  {
+    "idx": 571,
+    "style": "Normal",
+    "text": "Table 3.3: Sprint I Retrospective"
+  },
+  {
+    "idx": 577,
+    "style": "Normal",
+    "text": "Table 3.4: overall recall and f1 score"
+  },
+  {
+    "idx": 586,
+    "style": "Normal",
+    "text": "15"
+  },
+  {
+    "idx": 591,
+    "style": "Heading 2",
+    "text": "3.2 SPRINT II: AI Intelligence & Real-Time Dashboard"
+  },
+  {
+    "idx": 592,
+    "style": "Heading 2",
+    "text": "3.2.1  Objectives with User Stories of Sprint II:"
+  },
+  {
+    "idx": 593,
+    "style": "Normal",
+    "text": "The goal is to include comprehensive explanations provided by an explainable AI system, including dual-CAM comparison, LIME analysis on superpixels, heatmaps using Grad-CAM, automatic generation of a clinical narrative with 96 location-specific reports, and a context-aware medical chatbot."
+  },
+  {
+    "idx": 595,
+    "style": "Normal",
+    "text": "User Stories:"
+  },
+  {
+    "idx": 596,
+    "style": "Normal",
+    "text": "• User Story 1: Grad-CAM Heatmaps Generator: Generate activations and compute gradients by attaching a hook in the fourth layer of ResNet50 to produce a Grad-CAM map. Create 224x224 heatmaps normalized to visualize the most worrisome zones using JET coloring (alpha=0.4)."
+  },
+  {
+    "idx": 597,
+    "style": "Normal",
+    "text": "• User Story 2: Dual-CAM Comparison: Visualize the reasons why a specific diagnosis (diagnosis A) was preferred over another one (diagnosis B) in generating the heatmaps.• Story 8: Real-Time Streaming & UI Dashboard - Create a React SPA with Server-Sent Events streaming to give the analyst live attack alerts and visual severity indicators within 200ms of detection."
+  },
+  {
+    "idx": 598,
+    "style": "Normal",
+    "text": "• User Story 3: Heatmap Engine based on 8 Zones: Analyze the anatomical location (8-zone matrix), the size (Small/Medium/Large), the shape based on circularity (Rounded/Oval/Irregular), the intensity (High/Moderate/Low), and the dispersion (Localized/Bilateral/Diffuse) by performing connected component analysis through Grad-CAM activation map."
+  },
+  {
+    "idx": 599,
+    "style": "Normal",
+    "text": "• User Story 4: Clinical Narrative Engine: Develop an extensive system for documenting clinical cases with 96 different reports (malignant × 8 zones + cancer subtype × 8 zones × 4 categories). For each report there is eight symptoms, five diagnostic follow-ups, five treatment choices, and location-specific analysis."
+  },
+  {
+    "idx": 600,
+    "style": "Normal",
+    "text": "• User Story 5: LIME Superpixels Explainer: Employ the lime_image framework for segmentation using Quickshift with 100 samples to determine the superpixel contribution to perform Local Interpretable Model-agnostic Explanations."
+  },
+  {
+    "idx": 601,
+    "style": "Normal",
+    "text": "• User Story 6: AI Chatbot for Medicine: Develop a contextual chatbot capable of answering diagnostic questions associated with the images after analysis done on both fields."
+  },
+  {
+    "idx": 606,
+    "style": "Normal",
+    "text": "16"
+  },
+  {
+    "idx": 610,
+    "style": "Normal",
+    "text": "3.2.2 Functional Document (Functional Test Cases)"
+  },
+  {
+    "idx": 611,
+    "style": "Normal",
+    "text": "The whole explainability pipeline was part of Sprint II. Nowadays, the software produces Dual-CAM visualizations showing the comparison of the predicted and counter class, Grad-CAM visualizations that show attention locations, LIME visualizations indicating superpixels that favor or refute the finding, as well as clinical notes generated automatically containing location-based symptoms, actions to take next, and treatments. The whole point of sprint 2 is only of lime and explainable features, th"
+  },
+  {
+    "idx": 614,
+    "style": "Normal",
+    "text": "Table 3.5: Sprint II Functional Test Cases"
+  },
+  {
+    "idx": 617,
+    "style": "Normal",
+    "text": "The clinical narrative engine generates comprehensive, location-specific reports that include stage estimation, risk grading, anatomical analysis, symptom lists, diagnostic procedures, and treatment options — all tailored to the specific cancer subtype and its precise 8-zone location."
+  },
+  {
+    "idx": 622,
+    "style": "Normal",
+    "text": "17"
+  },
+  {
+    "idx": 626,
+    "style": "Normal",
+    "text": "3.2.3  Architecture Document"
+  },
+  {
+    "idx": 627,
+    "style": "Normal",
+    "text": "Three main additions were introduced into the architecture during Sprint II:"
+  },
+  {
+    "idx": 628,
+    "style": "List Paragraph",
+    "text": "Explainability Engine (LIME + Grad-CAM):"
+  },
+  {
+    "idx": 629,
+    "style": "Normal",
+    "text": "The Grad-CAM part hooks both forward and backward layers for ResNet50 at layer 4. Gradients are hooked, global average-pooled, and then used as weights for weighted feature activation maps in the process of inference. This results in ReLU, normalization, and scaling of the obtained image to 224 x 224 dimensions. The LIME component generates positive overlay images and full overlay images based on 100 perturbation images via the lime_image package with Quickshift segmentation."
+  },
+  {
+    "idx": 630,
+    "style": "List Paragraph",
+    "text": "Clinical Narrative Engine:"
+  },
+  {
+    "idx": 631,
+    "style": "Normal",
+    "text": "Notes.py is a Python script with 1,271 lines of code, including binary malignant information for eight anatomical regions and structured clinical information for three types of cancer. Each region is accompanied by eight symptoms, five possible diagnoses, five treatments, and a paragraph analyzing the location, all of which have been carefully crafted with clinical accuracy. The correct version is selected by the engine based on the results of an 8-region heatmap analysis."
+  },
+  {
+    "idx": 632,
+    "style": "List Paragraph",
+    "text": "AI-powered Chatbot:"
+  },
+  {
+    "idx": 633,
+    "style": "Normal",
+    "text": "User queries and contextual information from both domains are received at a Flask endpoint (/chat). After determining the query’s intent via keyword matching, the chatbot responds with relevant contextual information based on the analyzed scan, such as predictions, confidence levels, stages, and location information."
+  },
+  {
+    "idx": 635,
+    "style": "Normal",
+    "text": "3.2.4 Analysis of Results/ Achievement of Objectives:"
+  },
+  {
+    "idx": 636,
+    "style": "Normal",
+    "text": "All goals for Sprint II were successfully met. Under pathological conditions, the use of Grad-CAM results in effective localization of the key nodule with good alignment to the expected diagnosis. The use of Dual-CAM provides a visual demonstration of the decision boundary used by the algorithm. The LIME approach makes use of narrative explanations to identify superpixels that support and oppose each other."
+  },
+  {
+    "idx": 637,
+    "style": "Normal",
+    "text": "The clinical narrative generator produces full and detailed reports that are tailored specifically for a particular cancer type and its location in one of 8 zones. Such reports contain information regarding staging, risk evaluation, anatomy, symptoms, diagnosis, and treatment options.In a system with a GPU, the whole workflow (image pre-processing, classification, Grad-CAM application, and narrative generation) takes less than 1.5 seconds per image slice."
+  },
+  {
+    "idx": 640,
+    "style": "Normal",
+    "text": "18"
+  },
+  {
+    "idx": 644,
+    "style": "Normal",
+    "text": "Fig.3.2 Accuracy metrics for Sector 2 Malignancy Detection using the LIDC-"
+  },
+  {
+    "idx": 645,
+    "style": "Normal",
+    "text": "IDRI dataset."
+  },
+  {
+    "idx": 646,
+    "style": "Heading 2",
+    "text": "3.2.5  Sprint Retrospective"
+  },
+  {
+    "idx": 651,
+    "style": "Normal",
+    "text": "Table 3.6: Sprint II Retrospective"
+  },
+  {
+    "idx": 655,
+    "style": "Normal",
+    "text": "19"
+  },
+  {
+    "idx": 657,
+    "style": "Normal",
+    "text": "CHAPTER 4"
+  },
+  {
+    "idx": 658,
+    "style": "Normal",
+    "text": "RESULTS AND DISCUSSIONS"
+  },
+  {
+    "idx": 659,
+    "style": "Normal",
+    "text": "4. Project Outcomes (Performance Evaluation, Comparisons, Testing Results)"
+  },
+  {
+    "idx": 660,
+    "style": "Normal",
+    "text": "This project includes an extensive discussion on Lung Cancer AI Diagnostic System. All the results extracted by analyzing the system have been classified into six separate sections that include Accuracy Assessment of Classification Model, Efficiency Analysis of Image Preprocessing, Explanation Ability through Grad-CAM, LIME Analysis Performance Assessment, Performance Assessment of Clinical Narrative Engine, and Online Performance of the Application."
+  },
+  {
+    "idx": 661,
+    "style": "Normal",
+    "text": "4.1 Classification Model Performance"
+  },
+  {
+    "idx": 662,
+    "style": "Normal",
+    "text": "4.1.1 Sector 1 — Four-Class Subtype Classification"
+  },
+  {
+    "idx": 663,
+    "style": "Normal",
+    "text": "The number of subtypes involved in this process is four. These include Adenocarcinoma, Squamous Cell Carcinoma, Large Cell Carcinoma, and Normal subtypes. Classification was done based on all the above subtypes using the Kaggle Chest CT Dataset and ResNet50 Architecture along with Custom FC Head."
+  },
+  {
+    "idx": 664,
+    "style": "Normal",
+    "text": "To address the issue of class imbalance that exists in this data set, the training used SMOTE, a minority oversampling method performed at the feature level. The least represented category, Large Cell Carcinoma, is significantly underrepresented compared to Adenocarcinoma and Normal classifications. Without the use of SMOTE, 38 percent of large cells were misclassified as Adenocarcinoma in the original model, indicating a significant class bias toward the most prevalent category. After SMOTE was"
+  },
+  {
+    "idx": 666,
+    "style": "Normal",
+    "text": "Table 4.1: Per-Class Performance — Sector 1 (4-Class Classifier)"
+  },
+  {
+    "idx": 670,
+    "style": "Normal",
+    "text": "20"
+  },
+  {
+    "idx": 673,
+    "style": "Normal",
+    "text": "Based on the confusion matrix analysis, the most frequent error is the confusion between Adenocarcinoma and Large Cell Carcinoma (4.2%), a result that confirms the available data from radiological literature according to which these two types have similar morphologic features on the CT scan. Squamous cell carcinoma was the type of tumor least confused with the others due to the specific location inside the main bronchus that leads to specific spatial patterns in the CT image. The classification "
+  },
+  {
+    "idx": 674,
+    "style": "Normal",
+    "text": "After 50 epochs, there is a smooth convergence of the training graphs without any evidence of overfitting. From epoch 35 onwards, the validation loss was constant, and early stopping was appliedusing patience for 10 epochs."
+  },
+  {
+    "idx": 675,
+    "style": "Normal",
+    "text": "4.1.2 Sector 2 — Binary Malignancy Detection"
+  },
+  {
+    "idx": 676,
+    "style": "Normal",
+    "text": "Pretraining of ImageNet V2 was utilized for the secondary binary classifier, whose architecture followed that of ResNet50, but had an extended head layer (2048 → 512 → 128 → 2) and employed Dropout layers of 0.4 and 0.3. The purpose of the secondary classifier was classification of benign/malignant nodules.The utilization of ImageNet V2 pre-trained weights proved successful for this problem statement. The advantage of transfer learning amounted to around 7 percentage points (from 85.1% to 92.3%)"
+  },
+  {
+    "idx": 678,
+    "style": "Normal",
+    "text": "Compared to Benign (0.91), the binary classification method displays greater precision in terms of the Malignant category (0.94), as this classification method is preferred because it decreases the probability of false negatives, meaning the lack of identifying existing cancers. In terms of the ability of this model to differentiate between small textural differences of benign and malignant nodules, the presence of a larger classification head with an additional intermediate 128-neuron layer bec"
+  },
+  {
+    "idx": 680,
+    "style": "Normal",
+    "text": "4.1.3 Model Architecture Comparison"
+  },
+  {
+    "idx": 681,
+    "style": "Normal",
+    "text": "ResNet50 was clearly superior to the remaining classification models. Residual links allow this neural network to learn complicated features hierarchically due to the better management of the vanishing gradient problem compared to deep but basic models such as VGG-16. EfficientNet-B0 showed mixed results when processing grayscale images."
+  },
+  {
+    "idx": 684,
+    "style": "Normal",
+    "text": "21"
+  },
+  {
+    "idx": 687,
+    "style": "Normal",
+    "text": "4.2 Image Preprocessing Evaluation"
+  },
+  {
+    "idx": 689,
+    "style": "Normal",
+    "text": "To normalize the images generated by various types of CT scanning devices and methods, the pre-processing pipeline is vital. The six steps in the pre-processing pipeline include Median Blur (k=3), Global Histogram Equalization, Contrast Limited Adaptive Histogram Equalization (CLAHE) with clipLimit = 2.0 and tileGridSize = 8×8, Morphological Operations Open, Morphological Operations Close, and 3-channel stacking with ImageNet Normalization."
+  },
+  {
+    "idx": 690,
+    "style": "Normal",
+    "text": "The entire pre-processing pipeline yields an increase of around 11.3% and 8.1% for Sector 1 and Sector 2, respectively, relative to raw input images. The pre-processing step that has the most significant impact individually on image normalization is Contrast Limited Adaptive Histogram Equalization (CLAHE). This algorithm improves the contrast between the nodule and the surrounding lung parenchyma. Morphological operations (open and close with a 3x3 elliptical kernel) help bridge small holes in t"
+  },
+  {
+    "idx": 692,
+    "style": "Normal",
+    "text": "Fig.4.1 System Implementation Screenshot showing Subtype Identification"
+  },
+  {
+    "idx": 693,
+    "style": "Normal",
+    "text": "and Malignancy Results."
+  },
+  {
+    "idx": 697,
+    "style": "Normal",
+    "text": "22"
+  },
+  {
+    "idx": 700,
+    "style": "Normal",
+    "text": "The intentional pairing of the GHE and CLAHE approaches means that where the CLAHE approach boosts local contrast without amplifying the noise, which is inherent in CLAHE itself when applied directly to raw CT images, GHE provides basic contrast enhancement to the whole image. As such, this approach results in CT scans with clear depiction of both the nodular structures and gross anatomical structures."
+  },
+  {
+    "idx": 701,
+    "style": "Normal",
+    "text": "4.3 Validation of Grad-CAM Explainability"
+  },
+  {
+    "idx": 702,
+    "style": "Normal",
+    "text": "Through the recording of the gradients at the entrance of the last convolutional layer of ResNet50 (Layer 4) in the backward propagation step for the target class, the Grad-CAM (Gradient-weighted"
+  },
+  {
+    "idx": 703,
+    "style": "Normal",
+    "text": "Camera which is used by heat maps to identify the cancer which are present and using colours shows"
+  },
+  {
+    "idx": 704,
+    "style": "Normal",
+    "text": "(Class Activation Mapping) method generates visual heat maps. These regions of the CT scan most influential on the classification are marked by the resulting activation map."
+  },
+  {
+    "idx": 706,
+    "style": "Normal",
+    "text": "4.3.1 Localisation Accuracy"
+  },
+  {
+    "idx": 707,
+    "style": "Normal",
+    "text": "In 98% of cases, the heatmap can correctly pinpoint the important area from the qualitative analysis of Grad-CAMs for 200 pathological test cases. For the overwhelming majority of test cases, the activation centroid (center weighted of the heatmap) falls within the specified nodule area. The remaining 2% of test cases that did not show satisfactory localization were because of very tiny nodules (less than 5 mm) at the edge of the lungs, due to the lack of localization capability because of the p"
+  },
+  {
+    "idx": 709,
+    "style": "Normal",
+    "text": "4.3.2 Anatomical Localization Using Eight Regions"
+  },
+  {
+    "idx": 710,
+    "style": "Normal",
+    "text": "Without the center of the image, the 224x224 heatmap grid is subdivided into 3x3 grids using the 8-region analyzer, yielding 8 regions: Top Left, Top, Top Right, Left, Right, Bottom Left, Bottom, Bottom Right.4.3.3 Heatmap Analysis MetricsThe heatmap analysis engine extracts six quantitative metrics from each Grad-CAM"
+  },
+  {
+    "idx": 716,
+    "style": "List Paragraph",
+    "text": "23"
+  },
+  {
+    "idx": 719,
+    "style": "Normal",
+    "text": "This information correlates well with known clinical features for each specific subtype. Adenocarcinoma tends to appear as discrete peripheral nodules, as seen by the spherical shape and low activation rate. Normally developing in the mid bronchus, squamous cell carcinoma typically leads to rather large activations with an elongated shape. Being the most aggressive subtype, big cell carcinoma produces very large, intense activations that are numerous and irregular."
+  },
+  {
+    "idx": 721,
+    "style": "Normal",
+    "text": "Table 4.2: Heatmap Analysis — Sample Results Across Cancer Subtypes"
+  },
+  {
+    "idx": 723,
+    "style": "Normal",
+    "text": "4.3.4 Comparison of Dual-CAM"
+  },
+  {
+    "idx": 724,
+    "style": "Normal",
+    "text": "Dual-CAM gives heatmaps of both the projected class and its strongest competitor, the class with the second highest probability. It is essentially visual representation of the decision boundary. The projected class heatmap is characterized by dense and intense activations within the nodule area, and in test cases the dual-CAM comparison reveals distinct activations in 94% of samples."
+  },
+  {
+    "idx": 726,
+    "style": "Normal",
+    "text": "4.4 LIME Analysis Evaluation"
+  },
+  {
+    "idx": 727,
+    "style": "Normal",
+    "text": "Based on a perturbation approach, the LIME (Local Interpretable Model-agnostic Explanations) component provides additional information for the Grad-CAM approach. As opposed to examining the gradient flow, the LIME approach examines the effect of the prediction in relation to different regions covered by superpixels, whether it supports or negates the diagnosis"
+  },
+  {
+    "idx": 731,
+    "style": "Normal",
+    "text": "24"
+  },
+  {
+    "idx": 734,
+    "style": "Normal",
+    "text": "The best 8 superpixels and 100 perturbations were used for the LIME analysis. As compared to the Grad-CAM approach (<0.2s), the average GPU processing time is 8 seconds per image. Consequently, the LIME model was implemented as an on-demand approach rather than an automatic one.The LIME results show strong agreement with Grad-CAM localisation (87-89% location agreement), validating the consistency of the model's decision-making process across two fundamentally different explanation methods. The "
+  },
+  {
+    "idx": 737,
+    "style": "Normal",
+    "text": "Fig.4.2 from a normal ct image to gead cam observed ct image"
+  },
+  {
+    "idx": 739,
+    "style": "Normal",
+    "text": "that the model relies on specific, localised features rather than diffuse patterns, which is consistent with the focal nature of lung nodules."
+  },
+  {
+    "idx": 740,
+    "style": "Normal",
+    "text": "Explanation in natural language, including the percentage of supporting and dissenting superpixels, their location within the body part, and the implications on prediction performance, is generated via the narrative generated by the LIME algorithm. In doing so, the story provides additional information that complements the Grad-CAM explanation through its completely different perspective on the issue."
+  },
+  {
+    "idx": 746,
+    "style": "Normal",
+    "text": "25"
+  },
+  {
+    "idx": 748,
+    "style": "Normal",
+    "text": "4.5 Evaluation of Clinical Narrative Engines"
+  },
+  {
+    "idx": 749,
+    "style": "Normal",
+    "text": "The Clinical Narrative Engine generates structured clinical diagnosis based on the Grad-CAM heatmap visualization and classification output. The engine was clinically validated in terms of its relevance and correctness and offers 96 possible report versions (3 cancer types × 8 anatomical sites × 4 data types, plus 8 binary malignant sites).4.5.1 Report Structure Validation"
+  },
+  {
+    "idx": 750,
+    "style": "Normal",
+    "text": "Four sections in each report are Location Analysis (tumor site description in terms of anatomy), Symptoms (eight symptoms depending on tumor location), Next Steps (five procedures recommended for diagnostics), and Treatments (five possible treatment options). Established standards of radiology reporting and cancerology literature were compared with all clinical information provided.In order to determine the stage of malignancy using the heatmap activation rate: less than 10% activation is indica"
+  },
+  {
+    "idx": 753,
+    "style": "Normal",
+    "text": "Fig.4.3 Web Dashboard — Sector 2 (Malignancy Detection)"
+  },
+  {
+    "idx": 757,
+    "style": "Normal",
+    "text": "26"
+  },
+  {
+    "idx": 760,
+    "style": "Normal",
+    "text": "CHAPTER 5"
+  },
+  {
+    "idx": 761,
+    "style": "Normal",
+    "text": "CONCLUSION AND FUTURE ENHANCEMENT"
+  },
+  {
+    "idx": 762,
+    "style": "Normal",
+    "text": "5.1 Conclusion"
+  },
+  {
+    "idx": 763,
+    "style": "Normal",
+    "text": "To address the many limitations that exist in the existing CAD systems, it was possible to develop an effective and efficient Lung Cancer AI Diagnostic System. The hierarchical ResNet50 model with 95% accuracy in 4-class histological subtyping has the potential to match modern technologies, yet still produce a richer diagnostic information."
+  },
+  {
+    "idx": 764,
+    "style": "Normal",
+    "text": "The clinicians not only will be able to understand what information has been detected by the AI, but also learn how and where it has done it with the help of the two-stage application of the XAI method (Grad-CAM and LIME). This process becomes even more transparent with the help of the Dual-CAM system."
+  },
+  {
+    "idx": 765,
+    "style": "Normal",
+    "text": "The use of such innovations that bring about harmony between AI computations and clinical decision making includes the use of the Automated Clinical Narrative Engine that generates up to 96 diagnosis reports based on the location involved. Instead of delivering scores, the system offers meaningful results in terms of creating narratives out of heatmaps through symptomatology and other clinical interventions.Indeed, the whole web interface represents an innovative way for integrating AI medical t"
+  },
+  {
+    "idx": 767,
+    "style": "Normal",
+    "text": "5.2 Key Contributions"
+  },
+  {
+    "idx": 768,
+    "style": "Normal",
+    "text": "1. Hierarchical ResNet50 Classification Pipeline: This two-tiered classification framework performs better than one-stage classification systems in complicated image recognition tasks, achieving 95% accuracy on four-class histopathology subtype classification and 92.3% on malignancy binary classification."
+  },
+  {
+    "idx": 769,
+    "style": "Normal",
+    "text": "2. Two-Level Explainability Approach: Offering complementary analysis with basically different methods of interpretation, this is the first use case of combining Grad-CAM interpretability approach and LIME interpretability method in a single diagnosis of lung cancer system."
+  },
+  {
+    "idx": 770,
+    "style": "Normal",
+    "text": "3. Double CAM Visualization Component: This innovative approach creates heat maps of the counter-class and predicted class simultaneously, making it possible for users to understand the decision-making process of the algorithm."
+  },
+  {
+    "idx": 771,
+    "style": "Normal",
+    "text": "4. 8-Area Zone Mapping: It is an automated spatial mapping tool that uses quantitative metrics for characterizing size, shape, intensity, and spread of the regions of interest to map Grad-CAM activation zones to clinically meaningful anatomical zones."
+  },
+  {
+    "idx": 774,
+    "style": "Normal",
+    "text": "27"
+  },
+  {
+    "idx": 777,
+    "style": "Normal",
+    "text": "Clinical Narrative Engine: An end-to-end report generation tool that features 96 variations based on locations to produce structured medical notes that include symptomatology, procedures, and treatment for the cancer subtype and precise location of the tumor."
+  },
+  {
+    "idx": 778,
+    "style": "Normal",
+    "text": "1. Production-Grade Deployment online: A complete online Flask application that comes with the AI medical chatbot, dark-theme interface, drag-and-drop upload of medical images, live inference and visualization, and summary report generation."
+  },
+  {
+    "idx": 780,
+    "style": "Normal",
+    "text": "5.3 Limitations"
+  },
+  {
+    "idx": 781,
+    "style": "Normal",
+    "text": "While the system demonstrates strong performance across multiple evaluation dimensions, several limitations must be acknowledged:"
+  },
+  {
+    "idx": 783,
+    "style": "List Paragraph",
+    "text": "1. Dataset used: The dataset from one Kaggle Chest CT data set was utilized for training of the 4-class classifier. Performance may vary depending on the imaging technique used, the scanner brand or image reconstruction process used. Validation at multiple institutions is required before clinical use."
+  },
+  {
+    "idx": 784,
+    "style": "List Paragraph",
+    "text": "2. 2D slice analysis: In contrast to analyzing the entire 3D CT scan, the present methodology works with individual 2D CT scans. This means that the system cannot benefit from analysis in 3D of morphology, growth, and volumetric estimation of nodules that physicians rely on in their assessments."
+  },
+  {
+    "idx": 785,
+    "style": "List Paragraph",
+    "text": "3. Stage Prediction Estimation: The heat map-based prediction method does not replace the TNM staging process, which includes measurements of tumor size, lymph node metastasis, and metastasis, but only provides approximation estimates for the same."
+  },
+  {
+    "idx": 786,
+    "style": "List Paragraph",
+    "text": "4. LIME Latency: While Grad-CAM runs at a sub-second latency range, LIME requires about 8 seconds per interpretation. The latter is simply too long and therefore makes LIME unusable as a part of automatic operations."
+  },
+  {
+    "idx": 787,
+    "style": "Normal",
+    "text": "5. Complex Question Handling by the Medical Chatbot: The current medical chatbot’s ability to deal with complex medical questions beyond the preset knowledge base is constrained since the chatbot does not employ a large language model but simply matches keywords."
+  },
+  {
+    "idx": 795,
+    "style": "Normal",
+    "text": "28"
+  },
+  {
+    "idx": 798,
+    "style": "Normal",
+    "text": "5.4 Future Enhancement"
+  },
+  {
+    "idx": 799,
+    "style": "Normal",
+    "text": "Based on the outcomes and limitations of this project, several directions for future enhancement are identified:"
+  },
+  {
+    "idx": 800,
+    "style": "Normal",
+    "text": "1. PACS/DICOM Compatibility: Clinical CT scans are maintained using PACS (Picture Archiving and Communication System) systems and are stored in DICOM (Digital Imaging and Communications in Medicine) file format. Future development will involve directly linking the system with hospital PACS systems so that radiologists are able to send CT scans to the AI diagnostic system from their existing radiology workstations. This will also allow for obtaining additional information about the DICOM scans (s"
+  },
+  {
+    "idx": 801,
+    "style": "Normal",
+    "text": "2. 3D Volumetric Analysis: The system will enable the complete characterization of the nodules through volumetric analysis, growth rate calculation between successive scans, and analysis of the three-dimensional morphology through a switch from the present 2D slice-based analysis to 3D volumetric analysis. This is accomplished by replacing the existing 2D ResNet50 model with the 3D CNN model that has been trained on volumetric CT scans, like 3D-ResNet or V-Net. The 3D Grad-CAM will output a 3D h"
+  },
+  {
+    "idx": 802,
+    "style": "Normal",
+    "text": "3. Classification of Small Cell Lung Cancer (SCLC): There are currently three types of Non-Small Cell Lung Cancer (NSCLC) classified in the system. SCLC, representing about 15% of lung cancer cases, has a completely different treatment protocol (primarily chemo-radiation therapy versus surgical excision), and should also be classified within the clinical framework of the system."
+  },
+  {
+    "idx": 803,
+    "style": "Normal",
+    "text": "4. Incorporation of Large Language Model (LLM): The diagnosis capabilities of the system during conversations can be significantly enhanced through the incorporation of an advanced Large Language Model (LLM), specifically one that pertains to medical information (more developed versions of LLaMA or GPT), capable of participating in difficult medical dialogues, interpreting complex information in an easily understandable manner, and analyzing the information by comparing it to the current scienti"
+  },
+  {
+    "idx": 804,
+    "style": "Normal",
+    "text": "5. Multi-institutional Validation Study: A multi-institutional validation study must be conducted before implementing the system in clinical settings."
+  },
+  {
+    "idx": 814,
+    "style": "Normal",
+    "text": "29"
+  },
+  {
+    "idx": 816,
+    "style": "Normal",
+    "text": "REFERENCES"
+  },
+  {
+    "idx": 818,
+    "style": "Normal",
+    "text": "[1]Mohammad Q. Shatnawi,Deep learning-based approach to diagnose lung cancer using CT-scan images, elseveir.2025"
+  },
+  {
+    "idx": 819,
+    "style": "Normal",
+    "text": "[2]TEHNAN I. A. MOHAMED, Enhancing Lung Cancer Classification and Prediction With Deep Learning and Multi-Omics Data, IEEE Access.2024"
+  },
+  {
+    "idx": 820,
+    "style": "Normal",
+    "text": "[3]ABDULRAHMAN ALZAHRANI, Early Detection of Lung Cancer Using Predictive Modeling Incorporating CTGAN Features and Tree-Based Learning, IEEE Access 2022"
+  },
+  {
+    "idx": 821,
+    "style": "Normal",
+    "text": "[4]Marmar R. Moussa, Inference of Tumor Progression Patterns in Colon Cancer Using Optimal Cell Order Analysis in Single Cell Resolution, IEEE TRANSACTIONS.2023"
+  },
+  {
+    "idx": 822,
+    "style": "Normal",
+    "text": "[5]Hsieh-Fu Tsai, Evaluation of EGFR and RTK Signaling in the Electrotaxis of Lung Adenocarcinoma Cells under Direct-Current Electric Field Stimulation,PLOS one.2022"
+  },
+  {
+    "idx": 823,
+    "style": "Normal",
+    "text": "[6]Explainable AI for Healthcare 5.0: Opportunities and Challenges"
+  },
+  {
+    "idx": 824,
+    "style": "Normal",
+    "text": "Deepti Saraswat; Pronaya Bhattacharya, IEEE access 2022"
+  },
+  {
+    "idx": 825,
+    "style": "Normal",
+    "text": "[7]Explainable AI in Healthcare"
+  },
+  {
+    "idx": 826,
+    "style": "Normal",
+    "text": "Urja Pawar; Donna O’Shea, IEEE Explore 2022"
+  },
+  {
+    "idx": 827,
+    "style": "Normal",
+    "text": "[8]From Blackbox to Explainable AI in Healthcare: Existing Tools and Case StudiesParvathaneniNaga Srinivasu , 1N. Sandhya, august 2023"
+  },
+  {
+    "idx": 828,
+    "style": "Normal",
+    "text": "[9]Explainable AI in Healthcare Application"
+  },
+  {
+    "idx": 829,
+    "style": "Normal",
+    "text": "Siva Raja Sindiramutty (Taylor's University, Malaysia), Wee Jing Tee"
+  },
+  {
+    "idx": 830,
+    "style": "Normal",
+    "text": "2024"
+  },
+  {
+    "idx": 831,
+    "style": "Normal",
+    "text": "[10]Deep Learning Innovations in Detection of Lung Cancer: Advances, Trends and Open Challenges, Cognitive Computation, 2025."
+  },
+  {
+    "idx": 845,
+    "style": "Normal",
+    "text": "30"
+  },
+  {
+    "idx": 846,
+    "style": "Normal",
+    "text": "APPENDIX A"
+  },
+  {
+    "idx": 848,
+    "style": "Normal",
+    "text": "CODING"
+  },
+  {
+    "idx": 849,
+    "style": "Normal",
+    "text": "LIME Explainer code"
+  },
+  {
+    "idx": 850,
+    "style": "Normal",
+    "text": "\"\"\""
+  },
+  {
+    "idx": 851,
+    "style": "Normal",
+    "text": "================================================================"
+  },
+  {
+    "idx": 852,
+    "style": "Normal",
+    "text": "LIME Explainer — Local Interpretable Model-agnostic Explanations"
+  },
+  {
+    "idx": 853,
+    "style": "Normal",
+    "text": "Generates superpixel-based explanations for CT scan predictions"
+  },
+  {
+    "idx": 854,
+    "style": "Normal",
+    "text": "================================================================"
+  },
+  {
+    "idx": 855,
+    "style": "Normal",
+    "text": "\"\"\""
+  },
+  {
+    "idx": 857,
+    "style": "Normal",
+    "text": "import cv2"
+  },
+  {
+    "idx": 858,
+    "style": "Normal",
+    "text": "import base64"
+  },
+  {
+    "idx": 859,
+    "style": "Normal",
+    "text": "import numpy as np"
+  },
+  {
+    "idx": 860,
+    "style": "Normal",
+    "text": "from PIL import Image"
+  },
+  {
+    "idx": 861,
+    "style": "Normal",
+    "text": "from lime import lime_image"
+  },
+  {
+    "idx": 862,
+    "style": "Normal",
+    "text": "from skimage.segmentation import mark_boundaries"
+  },
+  {
+    "idx": 864,
+    "style": "Normal",
+    "text": "class LimeExplainer:"
+  },
+  {
+    "idx": 865,
+    "style": "Normal",
+    "text": "def __init__(self, model, transform, device, class_names):"
+  },
+  {
+    "idx": 866,
+    "style": "Normal",
+    "text": "self.model = model"
+  },
+  {
+    "idx": 867,
+    "style": "Normal",
+    "text": "self.transform = transform"
+  },
+  {
+    "idx": 868,
+    "style": "Normal",
+    "text": "self.device = device"
+  },
+  {
+    "idx": 869,
+    "style": "Normal",
+    "text": "self.class_names = class_names"
+  },
+  {
+    "idx": 870,
+    "style": "Normal",
+    "text": "self.explainer = lime_image.LimeImageExplainer()"
+  },
+  {
+    "idx": 872,
+    "style": "Normal",
+    "text": "def _batch_predict(self, images):"
+  },
+  {
+    "idx": 873,
+    "style": "Normal",
+    "text": "\"\"\""
+  },
+  {
+    "idx": 874,
+    "style": "Normal",
+    "text": "LIME passes numpy arrays (N, H, W, 3) in 0-255 range."
+  },
+  {
+    "idx": 875,
+    "style": "Normal",
+    "text": "Convert to tensor and run inference."
+  },
+  {
+    "idx": 876,
+    "style": "Normal",
+    "text": "\"\"\""
+  },
+  {
+    "idx": 877,
+    "style": "Normal",
+    "text": "import torch"
+  },
+  {
+    "idx": 879,
+    "style": "Normal",
+    "text": "batch = []"
+  },
+  {
+    "idx": 880,
+    "style": "Normal",
+    "text": "for img in images:"
+  },
+  {
+    "idx": 881,
+    "style": "Normal",
+    "text": "pil = Image.fromarray(img.astype(np.uint8))"
+  },
+  {
+    "idx": 882,
+    "style": "Normal",
+    "text": "tensor = self.transform(pil)"
+  },
+  {
+    "idx": 883,
+    "style": "Normal",
+    "text": "batch.append(tensor)"
+  },
+  {
+    "idx": 885,
+    "style": "Normal",
+    "text": "batch_tensor = torch.stack(batch).to(self.device)"
+  },
+  {
+    "idx": 887,
+    "style": "Normal",
+    "text": "self.model.eval()"
+  },
+  {
+    "idx": 888,
+    "style": "Normal",
+    "text": "with torch.no_grad():"
+  },
+  {
+    "idx": 889,
+    "style": "Normal",
+    "text": "outputs = self.model(batch_tensor)"
+  },
+  {
+    "idx": 890,
+    "style": "Normal",
+    "text": "probs = torch.softmax(outputs, dim=1)"
+  },
+  {
+    "idx": 891,
+    "style": "Normal",
+    "text": "31"
+  },
+  {
+    "idx": 892,
+    "style": "Normal",
+    "text": "return probs.cpu().numpy()"
+  },
+  {
+    "idx": 894,
+    "style": "Normal",
+    "text": "def explain(self, img_rgb_224, pred_idx,"
+  },
+  {
+    "idx": 895,
+    "style": "Normal",
+    "text": "num_samples=100, num_features=8):"
+  },
+  {
+    "idx": 896,
+    "style": "Normal",
+    "text": "\"\"\""
+  },
+  {
+    "idx": 897,
+    "style": "Normal",
+    "text": "Generate LIME explanation for an image."
+  },
+  {
+    "idx": 898,
+    "style": "Normal",
+    "text": "img_rgb_224: numpy array (224, 224, 3) uint8"
+  },
+  {
+    "idx": 899,
+    "style": "Normal",
+    "text": "pred_idx: predicted class index"
+  },
+  {
+    "idx": 900,
+    "style": "Normal",
+    "text": "Returns: (positive_overlay, mask_overlay, narrative)"
+  },
+  {
+    "idx": 901,
+    "style": "Normal",
+    "text": "\"\"\""
+  },
+  {
+    "idx": 902,
+    "style": "Normal",
+    "text": "# Run LIME"
+  },
+  {
+    "idx": 903,
+    "style": "Normal",
+    "text": "try:"
+  },
+  {
+    "idx": 904,
+    "style": "Normal",
+    "text": "explanation = self.explainer.explain_instance("
+  },
+  {
+    "idx": 905,
+    "style": "Normal",
+    "text": "img_rgb_224,"
+  },
+  {
+    "idx": 906,
+    "style": "Normal",
+    "text": "self._batch_predict,"
+  },
+  {
+    "idx": 907,
+    "style": "Normal",
+    "text": "top_labels=len(self.class_names),"
+  },
+  {
+    "idx": 908,
+    "style": "Normal",
+    "text": "hide_color=0,"
+  },
+  {
+    "idx": 909,
+    "style": "Normal",
+    "text": "num_samples=num_samples,"
+  },
+  {
+    "idx": 910,
+    "style": "Normal",
+    "text": "batch_size=10"
+  },
+  {
+    "idx": 911,
+    "style": "Normal",
+    "text": ")"
+  },
+  {
+    "idx": 912,
+    "style": "Normal",
+    "text": "except Exception as e:"
+  },
+  {
+    "idx": 913,
+    "style": "Normal",
+    "text": "# Fallback if LIME fails"
+  },
+  {
+    "idx": 914,
+    "style": "Normal",
+    "text": "return None, None, f\"LIME Error: {str(e)}\""
+  },
+  {
+    "idx": 916,
+    "style": "Normal",
+    "text": "# Get the explanation for the predicted class"
+  },
+  {
+    "idx": 917,
+    "style": "Normal",
+    "text": "temp_pos, mask_pos = explanation.get_image_and_mask("
+  },
+  {
+    "idx": 918,
+    "style": "Normal",
+    "text": "pred_idx,"
+  },
+  {
+    "idx": 919,
+    "style": "Normal",
+    "text": "positive_only=True,"
+  },
+  {
+    "idx": 920,
+    "style": "Normal",
+    "text": "num_features=num_features,"
+  },
+  {
+    "idx": 921,
+    "style": "Normal",
+    "text": "hide_rest=False"
+  },
+  {
+    "idx": 922,
+    "style": "Normal",
+    "text": ")"
+  },
+  {
+    "idx": 924,
+    "style": "Normal",
+    "text": "temp_full, mask_full = explanation.get_image_and_mask("
+  },
+  {
+    "idx": 925,
+    "style": "Normal",
+    "text": "pred_idx,"
+  },
+  {
+    "idx": 926,
+    "style": "Normal",
+    "text": "positive_only=False,"
+  },
+  {
+    "idx": 927,
+    "style": "Normal",
+    "text": "num_features=num_features,"
+  },
+  {
+    "idx": 928,
+    "style": "Normal",
+    "text": "hide_rest=False"
+  },
+  {
+    "idx": 929,
+    "style": "Normal",
+    "text": ")"
+  },
+  {
+    "idx": 931,
+    "style": "Normal",
+    "text": "# Create overlay images"
+  },
+  {
+    "idx": 932,
+    "style": "Normal",
+    "text": "pos_overlay = mark_boundaries("
+  },
+  {
+    "idx": 933,
+    "style": "Normal",
+    "text": "temp_pos / 255.0, mask_pos,"
+  },
+  {
+    "idx": 934,
+    "style": "Normal",
+    "text": "color=(0.4, 1.0, 0.4), mode='thick'"
+  },
+  {
+    "idx": 935,
+    "style": "Normal",
+    "text": ")"
+  },
+  {
+    "idx": 939,
+    "style": "Normal",
+    "text": "32"
+  },
+  {
+    "idx": 940,
+    "style": "Normal",
+    "text": "GradCam Code"
+  },
+  {
+    "idx": 941,
+    "style": "Normal",
+    "text": "\"\"\""
+  },
+  {
+    "idx": 942,
+    "style": "Normal",
+    "text": "================================================================"
+  },
+  {
+    "idx": 943,
+    "style": "Normal",
+    "text": "Grad-CAM — Gradient-weighted Class Activation Mapping"
+  },
+  {
+    "idx": 944,
+    "style": "Normal",
+    "text": "Works for both EfficientNet and ResNet architectures."
+  },
+  {
+    "idx": 945,
+    "style": "Normal",
+    "text": "================================================================"
+  },
+  {
+    "idx": 946,
+    "style": "Normal",
+    "text": "\"\"\""
+  },
+  {
+    "idx": 948,
+    "style": "Normal",
+    "text": "import cv2"
+  },
+  {
+    "idx": 949,
+    "style": "Normal",
+    "text": "import numpy as np"
+  },
+  {
+    "idx": 950,
+    "style": "Normal",
+    "text": "import torch"
+  },
+  {
+    "idx": 951,
+    "style": "Normal",
+    "text": "import torch.nn.functional as F"
+  },
+  {
+    "idx": 953,
+    "style": "Normal",
+    "text": "class GradCAM:"
+  },
+  {
+    "idx": 954,
+    "style": "Normal",
+    "text": "def __init__(self, model, model_type=\"efficientnet\"):"
+  },
+  {
+    "idx": 955,
+    "style": "Normal",
+    "text": "self.model = model"
+  },
+  {
+    "idx": 956,
+    "style": "Normal",
+    "text": "self.model_type = model_type"
+  },
+  {
+    "idx": 957,
+    "style": "Normal",
+    "text": "self.gradients = None"
+  },
+  {
+    "idx": 958,
+    "style": "Normal",
+    "text": "self.activations = None"
+  },
+  {
+    "idx": 959,
+    "style": "Normal",
+    "text": "self._register_hooks()"
+  },
+  {
+    "idx": 961,
+    "style": "Normal",
+    "text": "def _register_hooks(self):"
+  },
+  {
+    "idx": 962,
+    "style": "Normal",
+    "text": "def forward_hook(module, input, output):"
+  },
+  {
+    "idx": 963,
+    "style": "Normal",
+    "text": "self.activations = output.detach()"
+  },
+  {
+    "idx": 965,
+    "style": "Normal",
+    "text": "def backward_hook(module, grad_input, grad_output):"
+  },
+  {
+    "idx": 966,
+    "style": "Normal",
+    "text": "self.gradients = grad_output[0].detach()"
+  },
+  {
+    "idx": 968,
+    "style": "Normal",
+    "text": "if self.model_type == \"efficientnet\":"
+  },
+  {
+    "idx": 969,
+    "style": "Normal",
+    "text": "target_layer = self.model.features[-1]"
+  },
+  {
+    "idx": 970,
+    "style": "Normal",
+    "text": "elif self.model_type == \"resnet\":"
+  },
+  {
+    "idx": 971,
+    "style": "Normal",
+    "text": "target_layer = self.model.layer4"
+  },
+  {
+    "idx": 972,
+    "style": "Normal",
+    "text": "else:"
+  },
+  {
+    "idx": 973,
+    "style": "Normal",
+    "text": "target_layer = self.model.features.denseblock4"
+  },
+  {
+    "idx": 975,
+    "style": "Normal",
+    "text": "target_layer.register_forward_hook(forward_hook)"
+  },
+  {
+    "idx": 976,
+    "style": "Normal",
+    "text": "target_layer.register_full_backward_hook(backward_hook)"
+  },
+  {
+    "idx": 978,
+    "style": "Normal",
+    "text": "def generate(self, input_tensor, class_idx=None):"
+  },
+  {
+    "idx": 979,
+    "style": "Normal",
+    "text": "self.model.eval()"
+  },
+  {
+    "idx": 981,
+    "style": "Normal",
+    "text": "# Move input to same device as model"
+  },
+  {
+    "idx": 982,
+    "style": "Normal",
+    "text": "input_tensor = input_tensor.to("
+  },
+  {
+    "idx": 983,
+    "style": "Normal",
+    "text": "next(self.model.parameters()).device)"
+  },
+  {
+    "idx": 984,
+    "style": "Normal",
+    "text": "input_tensor = input_tensor.requires_grad_(True)"
+  },
+  {
+    "idx": 987,
+    "style": "Normal",
+    "text": "33"
+  },
+  {
+    "idx": 989,
+    "style": "Normal",
+    "text": "if class_idx is None:"
+  },
+  {
+    "idx": 990,
+    "style": "Normal",
+    "text": "class_idx = output.argmax(dim=1).item()"
+  },
+  {
+    "idx": 992,
+    "style": "Normal",
+    "text": "# Backward pass for target class"
+  },
+  {
+    "idx": 993,
+    "style": "Normal",
+    "text": "self.model.zero_grad()"
+  },
+  {
+    "idx": 994,
+    "style": "Normal",
+    "text": "target = output[0][class_idx]"
+  },
+  {
+    "idx": 995,
+    "style": "Normal",
+    "text": "target.backward()"
+  },
+  {
+    "idx": 997,
+    "style": "Normal",
+    "text": "# Compute Grad-CAM"
+  },
+  {
+    "idx": 998,
+    "style": "Normal",
+    "text": "gradients = self.gradients[0]"
+  },
+  {
+    "idx": 999,
+    "style": "Normal",
+    "text": "activations = self.activations[0]"
+  },
+  {
+    "idx": 1001,
+    "style": "Normal",
+    "text": "# Global average pool gradients"
+  },
+  {
+    "idx": 1002,
+    "style": "Normal",
+    "text": "weights = gradients.mean(dim=(1, 2))"
+  },
+  {
+    "idx": 1004,
+    "style": "Normal",
+    "text": "# Weighted combination — keep on same device"
+  },
+  {
+    "idx": 1005,
+    "style": "Normal",
+    "text": "cam = torch.zeros("
+  },
+  {
+    "idx": 1006,
+    "style": "Normal",
+    "text": "activations.shape[1:],"
+  },
+  {
+    "idx": 1007,
+    "style": "Normal",
+    "text": "dtype=torch.float32"
+  },
+  {
+    "idx": 1008,
+    "style": "Normal",
+    "text": ").to(gradients.device)"
+  },
+  {
+    "idx": 1010,
+    "style": "Normal",
+    "text": "for i, w in enumerate(weights):"
+  },
+  {
+    "idx": 1011,
+    "style": "Normal",
+    "text": "cam += w * activations[i]"
+  },
+  {
+    "idx": 1013,
+    "style": "Normal",
+    "text": "# ReLU and move to CPU"
+  },
+  {
+    "idx": 1014,
+    "style": "Normal",
+    "text": "cam = F.relu(cam)"
+  },
+  {
+    "idx": 1015,
+    "style": "Normal",
+    "text": "cam = cam.cpu().numpy()"
+  },
+  {
+    "idx": 1017,
+    "style": "Normal",
+    "text": "if cam.max() > 0:"
+  },
+  {
+    "idx": 1018,
+    "style": "Normal",
+    "text": "cam = cam / cam.max()"
+  },
+  {
+    "idx": 1020,
+    "style": "Normal",
+    "text": "# Resize to 224x224"
+  },
+  {
+    "idx": 1021,
+    "style": "Normal",
+    "text": "cam = cv2.resize(cam, (224, 224))"
+  },
+  {
+    "idx": 1022,
+    "style": "Normal",
+    "text": "return cam, class_idx"
+  },
+  {
+    "idx": 1024,
+    "style": "Normal",
+    "text": "def generate_dual_cam(self, input_tensor, pred_idx, num_classes):"
+  },
+  {
+    "idx": 1025,
+    "style": "Normal",
+    "text": "\"\"\""
+  },
+  {
+    "idx": 1026,
+    "style": "Normal",
+    "text": "Generate Grad-CAM for both the predicted class and the"
+  },
+  {
+    "idx": 1027,
+    "style": "Normal",
+    "text": "strongest counter-class (the next highest probability)."
+  },
+  {
+    "idx": 1028,
+    "style": "Normal",
+    "text": "Returns: (pred_cam, counter_cam, counter_idx)"
+  },
+  {
+    "idx": 1029,
+    "style": "Normal",
+    "text": "\"\"\""
+  },
+  {
+    "idx": 1030,
+    "style": "Normal",
+    "text": "# Forward pass to get probabilities"
+  },
+  {
+    "idx": 1031,
+    "style": "Normal",
+    "text": "self.model.eval()"
+  },
+  {
+    "idx": 1032,
+    "style": "Normal",
+    "text": "input_tensor = input_tensor.to("
+  },
+  {
+    "idx": 1033,
+    "style": "Normal",
+    "text": "next(self.model.parameters()).device)"
+  },
+  {
+    "idx": 1035,
+    "style": "Normal",
+    "text": "34"
+  },
+  {
+    "idx": 1036,
+    "style": "Normal",
+    "text": "logits = self.model(input_tensor)"
+  },
+  {
+    "idx": 1037,
+    "style": "Normal",
+    "text": "probs = torch.softmax(logits, dim=1)[0]"
+  },
+  {
+    "idx": 1039,
+    "style": "Normal",
+    "text": "# Find counter class — highest prob class that isn't pred"
+  },
+  {
+    "idx": 1040,
+    "style": "Normal",
+    "text": "probs_np = probs.cpu().numpy()"
+  },
+  {
+    "idx": 1041,
+    "style": "Normal",
+    "text": "sorted_idx = np.argsort(probs_np)[::-1]"
+  },
+  {
+    "idx": 1042,
+    "style": "Normal",
+    "text": "counter_idx = int("
+  },
+  {
+    "idx": 1043,
+    "style": "Normal",
+    "text": "sorted_idx[0] if sorted_idx[0] != pred_idx"
+  },
+  {
+    "idx": 1044,
+    "style": "Normal",
+    "text": "else sorted_idx[1]"
+  },
+  {
+    "idx": 1045,
+    "style": "Normal",
+    "text": ")"
+  },
+  {
+    "idx": 1047,
+    "style": "Normal",
+    "text": "# Generate CAM for predicted class"
+  },
+  {
+    "idx": 1048,
+    "style": "Normal",
+    "text": "pred_cam, _ = self.generate(input_tensor.clone(), pred_idx)"
+  },
+  {
+    "idx": 1050,
+    "style": "Normal",
+    "text": "# Generate CAM for counter class"
+  },
+  {
+    "idx": 1051,
+    "style": "Normal",
+    "text": "counter_cam, _ = self.generate("
+  },
+  {
+    "idx": 1052,
+    "style": "Normal",
+    "text": "input_tensor.clone(), counter_idx)"
+  },
+  {
+    "idx": 1054,
+    "style": "Normal",
+    "text": "return pred_cam, counter_cam, counter_idx"
+  },
+  {
+    "idx": 1056,
+    "style": "Normal",
+    "text": "def generate_explanation_narrative("
+  },
+  {
+    "idx": 1057,
+    "style": "Normal",
+    "text": "prediction, confidence, cam_analysis,"
+  },
+  {
+    "idx": 1058,
+    "style": "Normal",
+    "text": "class_names, probs_list, is_binary=True"
+  },
+  {
+    "idx": 1059,
+    "style": "Normal",
+    "text": "):"
+  },
+  {
+    "idx": 1060,
+    "style": "Normal",
+    "text": "\"\"\""
+  },
+  {
+    "idx": 1061,
+    "style": "Normal",
+    "text": "Generate a natural-language AI explanation from"
+  },
+  {
+    "idx": 1062,
+    "style": "Normal",
+    "text": "cam_analysis data and prediction results."
+  },
+  {
+    "idx": 1063,
+    "style": "Normal",
+    "text": "\"\"\""
+  },
+  {
+    "idx": 1064,
+    "style": "Normal",
+    "text": "a = cam_analysis"
+  },
+  {
+    "idx": 1065,
+    "style": "Normal",
+    "text": "pred = prediction"
+  },
+  {
+    "idx": 1066,
+    "style": "Normal",
+    "text": "conf = round(confidence, 1)"
+  },
+  {
+    "idx": 1068,
+    "style": "Normal",
+    "text": "# Confidence quality"
+  },
+  {
+    "idx": 1069,
+    "style": "Normal",
+    "text": "if confidence >= 90:"
+  },
+  {
+    "idx": 1070,
+    "style": "Normal",
+    "text": "conf_q = \"high confidence\""
+  },
+  {
+    "idx": 1071,
+    "style": "Normal",
+    "text": "conf_note = \"The model shows strong certainty\""
+  },
+  {
+    "idx": 1072,
+    "style": "Normal",
+    "text": "elif confidence >= 70:"
+  },
+  {
+    "idx": 1073,
+    "style": "Normal",
+    "text": "conf_q = \"moderate confidence\""
+  },
+  {
+    "idx": 1074,
+    "style": "Normal",
+    "text": "conf_note = ("
+  },
+  {
+    "idx": 1075,
+    "style": "Normal",
+    "text": "\"The model shows reasonable certainty, \""
+  },
+  {
+    "idx": 1076,
+    "style": "Normal",
+    "text": "\"but clinical correlation is recommended\""
+  },
+  {
+    "idx": 1077,
+    "style": "Normal",
+    "text": ")"
+  },
+  {
+    "idx": 1081,
+    "style": "Normal",
+    "text": "35"
+  },
+  {
+    "idx": 1082,
+    "style": "Normal",
+    "text": "APPENDIX B"
+  },
+  {
+    "idx": 1084,
+    "style": "Normal",
+    "text": "PUBLICATION DETAILS"
+  },
+  {
+    "idx": 1090,
+    "style": "Normal",
+    "text": "36"
+  },
+  {
+    "idx": 1092,
+    "style": "Normal",
+    "text": "APPENDIX C"
+  },
+  {
+    "idx": 1093,
+    "style": "Normal",
+    "text": "PLAGIARISM AI REPORT"
+  },
+  {
+    "idx": 1098,
+    "style": "List Paragraph",
+    "text": "37"
+  },
+  {
+    "idx": 1100,
+    "style": "Normal",
+    "text": "APPENDIX D"
+  },
+  {
+    "idx": 1101,
+    "style": "Normal",
+    "text": "SIMILARITY REPORT"
+  },
+  {
+    "idx": 1106,
+    "style": "Normal",
+    "text": "38"
+  }
+]

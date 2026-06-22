@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnvisionAI - Energy Demand Forecaster</title>
+    <meta name="description" content="Multi-region AI-Powered Energy Demand Forecasting Dashboard with 5 ML models">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <h1>Envision<span class="accent">AI</span></h1>
+            <p class="brand-sub">Energy Forecaster</p>
+        </div>
+        <div class="nav-links">
+            <a href="#forecaster" class="nav-link active" data-page="forecaster">
+                <span class="nav-icon">&#9889;</span>
+                <span class="nav-text">Forecaster</span>
+            </a>
+            <a href="#comparison" class="nav-link" data-page="comparison">
+                <span class="nav-icon">&#9878;</span>
+                <span class="nav-text">Model Comparison</span>
+            </a>
+            <a href="#explorer" class="nav-link" data-page="explorer">
+                <span class="nav-icon">&#128202;</span>
+                <span class="nav-text">Data Explorer</span>
+            </a>
+            <a href="#analytics" class="nav-link" data-page="analytics">
+                <span class="nav-icon">&#128200;</span>
+                <span class="nav-text">Analytics</span>
+            </a>
+            <a href="#summary" class="nav-link" data-page="summary">
+                <span class="nav-icon">&#128190;</span>
+                <span class="nav-text">Saved Summaries</span>
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <div class="region-selector">
+                <label>Active Region</label>
+                <select id="global-region">
+                    <option value="">Loading...</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- PAGE 1: Forecaster -->
+        <section class="page active" id="page-forecaster">
+            <div class="page-header">
+                <h2>Demand Forecaster</h2>
+                <div class="header-badge" id="forecast-region-badge">--</div>
+            </div>
+
+            <div class="controls-row">
+                <div class="control-group">
+                    <label for="model-select">Model</label>
+                    <select id="model-select"><option>Loading...</option></select>
+                </div>
+                <div class="control-group">
+                    <label for="date-input">Target Date</label>
+                    <input type="date" id="date-input">
+                </div>
+                <div class="control-group">
+                    <label for="hour-input">Hour <span class="mono" id="hour-display">12:00</span></label>
+                    <input type="range" id="hour-input" min="0" max="23" value="12">
+                </div>
+                <button id="predict-btn" class="primary-btn">Run Prediction</button>
+            </div>
+
+            <div class="simulation-controls">
+                <label class="sim-toggle">
+                    <input type="checkbox" id="sim-holiday">
+                    <span class="sim-label">🌲 Simulate Holiday</span>
+                </label>
+                <label class="sim-toggle outage">
+                    <input type="checkbox" id="sim-anomaly">
+                    <span class="sim-label">⚠️ Simulate Grid Outage</span>
+                </label>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <span class="kpi-label">Predicted Demand</span>
+                    <span class="kpi-value accent" id="kpi-predicted">-- MW</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Actual Demand</span>
+                    <span class="kpi-value" id="kpi-actual">-- MW</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Prediction Error</span>
+                    <span class="kpi-value error" id="kpi-error">-- MW</span>
+                </div>
+            </div>
+
+            <div class="insight-card" id="insight-card">
+                <span class="insight-icon">&#129302;</span>
+                <div>
+                    <span class="insight-label">AI Demand Narrative</span>
+                    <p id="insight-text">Select a region, date, and model to generate a live forecast...</p>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3>Forecast Context Window (48h History + 24h Forecast)</h3>
+                    <div class="legend">
+                        <span class="dot blue"></span> Historical
+                        <span class="dot green"></span> Forecast
+                    </div>
+                </div>
+                <div class="chart-wrap"><canvas id="forecastChart"></canvas></div>
+            </div>
+
+            <div class="metrics-row">
+                <div class="metric-pill"><span>RMSE</span><strong id="metric-rmse">--</strong></div>
+                <div class="metric-pill"><span>MAE</span><strong id="metric-mae">--</strong></div>
+                <div class="metric-pill"><span>MAPE</span><strong id="metric-mape">--</strong></div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: Model Comparison -->
+        <section class="page" id="page-comparison">
+            <div class="page-header">
+                <h2>Model Comparison</h2>
+                <button id="compare-btn" class="primary-btn">Compare All Models</button>
+            </div>
+
+            <div class="comparison-controls">
+                <div class="control-group">
+                    <label for="compare-date">Date</label>
+                    <input type="date" id="compare-date">
+                </div>
+                <div class="control-group">
+                    <label for="compare-hour">Hour <span class="mono" id="compare-hour-display">12:00</span></label>
+                    <input type="range" id="compare-hour" min="0" max="23" value="12">
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h3>R-squared Score by Model</h3>
+                <div class="chart-wrap chart-sm"><canvas id="r2Chart"></canvas></div>
+            </div>
+
+            <div class="dual-chart-row">
+                <div class="chart-card">
+                    <h3>RMSE Comparison</h3>
+                    <div class="chart-wrap chart-sm"><canvas id="rmseChart"></canvas></div>
+                </div>
+                <div class="chart-card">
+                    <h3>Prediction Accuracy</h3>
+                    <div class="chart-wrap chart-sm"><canvas id="predChart"></canvas></div>
+                </div>
+            </div>
+
+            <div class="comparison-table-wrap">
+                <table class="comparison-table" id="comparison-table">
+                    <thead>
+                        <tr><th>Model</th><th>Predicted (MW)</th><th>Error (MW)</th><th>Error %</th><th>R2</th><th>RMSE</th><th>MAE</th><th>MAPE</th></tr>
+                    </thead>
+                    <tbody id="comparison-tbody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- PAGE 3: Data Explorer -->
+        <section class="page" id="page-explorer">
+            <div class="page-header">
+                <h2>Data Explorer</h2>
+                <div class="control-group inline">
+                    <label>History Range</label>
+                    <select id="explorer-days">
+                        <option value="7">Last 7 Days</option>
+                        <option value="30" selected>Last 30 Days</option>
+                        <option value="90">Last 90 Days</option>
+                        <option value="365">Last Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="stats-grid" id="explorer-stats">
+                <div class="stat-card"><span class="stat-label">Total Records</span><span class="stat-value" id="stat-rows">--</span></div>
+                <div class="stat-card"><span class="stat-label">Mean Demand</span><span class="stat-value" id="stat-mean">-- MW</span></div>
+                <div class="stat-card"><span class="stat-label">Peak Demand</span><span class="stat-value" id="stat-max">-- MW</span></div>
+                <div class="stat-card"><span class="stat-label">Minimum</span><span class="stat-value" id="stat-min">-- MW</span></div>
+            </div>
+
+            <div class="chart-card">
+                <h3>Historical Demand Timeline</h3>
+                <div class="chart-wrap"><canvas id="historyChart"></canvas></div>
+            </div>
+
+            <div class="chart-card">
+                <h3>Demand Distribution</h3>
+                <div class="chart-wrap chart-sm"><canvas id="distChart"></canvas></div>
+            </div>
+        </section>
+
+        <!-- PAGE 4: Analytics -->
+        <section class="page" id="page-analytics">
+            <div class="page-header">
+                <h2>Analytics & Patterns</h2>
+            </div>
+
+            <div class="dual-chart-row">
+                <div class="chart-card">
+                    <h3>Average Demand by Hour</h3>
+                    <div class="chart-wrap chart-sm"><canvas id="hourlyChart"></canvas></div>
+                </div>
+                <div class="chart-card">
+                    <h3>Average Demand by Day of Week</h3>
+                    <div class="chart-wrap chart-sm"><canvas id="dowChart"></canvas></div>
+                </div>
+            </div>
+
+            <div class="dual-chart-row">
+                <div class="chart-card">
+                    <h3>Monthly Seasonal Patterns</h3>
+                    <div class="chart-wrap chart-sm"><canvas id="monthlyChart"></canvas></div>
+                </div>
+                <div class="chart-card">
+                    <h3>Yearly Trend</h3>
+                    <div class="chart-wrap chart-sm"><canvas id="yearlyChart"></canvas></div>
+                </div>
+            </div>
+
+            <div class="analytics-kpis">
+                <div class="kpi-card">
+                    <span class="kpi-label">Weekday Avg</span>
+                    <span class="kpi-value" id="ana-weekday">-- MW</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Weekend Avg</span>
+                    <span class="kpi-value" id="ana-weekend">-- MW</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Peak Hours Avg</span>
+                    <span class="kpi-value accent" id="ana-peak">-- MW</span>
+                </div>
+                <div class="kpi-card">
+                    <span class="kpi-label">Off-Peak Avg</span>
+                    <span class="kpi-value" id="ana-offpeak">-- MW</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 5: Saved Summaries -->
+        <section class="page" id="page-summary">
+            <div class="page-header">
+                <h2>Saved Summaries</h2>
+                <div class="header-badge" id="summary-count-badge">0 saved</div>
+            </div>
+
+            <div class="comparison-table-wrap">
+                <button id="clear-summary-btn" class="primary-btn" style="background:var(--red); color:#fff; border:none; margin-bottom: 1rem;">Clear History</button>
+                <table class="comparison-table" id="summary-table">
+                    <thead>
+                        <tr>
+                            <th>Execution Time</th>
+                            <th>Region</th>
+                            <th>Target Date</th>
+                            <th>Model</th>
+                            <th>Predicted (MW)</th>
+                            <th>Actual (MW)</th>
+                            <th>Error %</th>
+                            <th>Simulators</th>
+                        </tr>
+                    </thead>
+                    <tbody id="summary-tbody">
+                        <tr><td colspan="8" style="text-align:center;">No summaries saved yet. Run a prediction to save it here.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

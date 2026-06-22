@@ -1,0 +1,265 @@
+Create a detailed, professional system architecture diagram for a research paper titled "A Data-Centric Approach to Multi-Region Urban Energy Demand Forecasting Using Ensemble Machine Learning." This should look like a real IEEE-quality engineering diagram with multiple layers, sub-components, arrows showing data flow, and annotations. Use a clean white background suitable for printing in a research paper.
+
+===== FULL ARCHITECTURE SPECIFICATION =====
+
+The diagram flows LEFT to RIGHT across 5 major vertical layers. Each layer should be a distinct colored rounded rectangle containing its sub-components. Draw clear labeled arrows between components showing data flow direction.
+
+─────────────────────────────────────────────
+LAYER 1: DATA ACQUISITION (Left-most, Light Blue #DBEAFE)
+─────────────────────────────────────────────
+Title: "Data Acquisition Layer"
+Subtitle: "PJM Interconnection — US Eastern Grid"
+
+Contains 5 document-shaped icons stacked vertically:
+  ┌─────────────────────────┐
+  │ 📄 PJME_hourly.csv      │
+  │    145,027 rows          │
+  │    2002 – 2018           │
+  │    Avg: 32,081 MW        │
+  ├─────────────────────────┤
+  │ 📄 AEP_hourly.csv       │
+  │    120,934 rows          │
+  │    2004 – 2018           │
+  │    Avg: 15,504 MW        │
+  ├─────────────────────────┤
+  │ 📄 DAYTON_hourly.csv    │
+  │    120,936 rows          │
+  │    2004 – 2018           │
+  │    Avg: 2,038 MW         │
+  ├─────────────────────────┤
+  │ 📄 COMED_hourly.csv     │
+  │    66,158 rows           │
+  │    2011 – 2018           │
+  │    Avg: 11,416 MW        │
+  ├─────────────────────────┤
+  │ 📄 DOM_hourly.csv       │
+  │    115,850 rows          │
+  │    2005 – 2018           │
+  │    Avg: 10,956 MW        │
+  └─────────────────────────┘
+
+Arrow labeled "Raw CSV" pointing right →
+
+─────────────────────────────────────────────
+LAYER 2: DATA PIPELINE (Yellow/Amber #FEF3C7)
+─────────────────────────────────────────────
+Title: "Data Pipeline Layer"
+Subtitle: "data_pipeline.py + config.py"
+
+Sub-component 2A — Data Cleaning (top box):
+  ┌──────────────────────────────┐
+  │ DATA CLEANING                │
+  │ • Remove duplicate timestamps│
+  │ • Forward-fill gaps (≤3h)    │
+  │ • Drop unfillable NaN rows   │
+  │ • Validate datetime index    │
+  └──────────────────────────────┘
+  Arrow ↓ labeled "Cleaned DataFrame"
+
+Sub-component 2B — Feature Engineering Engine (large central box, divided into 6 cells in a 3×2 grid):
+  ┌──────────────────────────────────────────────────┐
+  │         FEATURE ENGINEERING (23 Features)         │
+  │                                                    │
+  │  ┌──────────────┐  ┌──────────────┐  ┌──────────┐│
+  │  │ Temporal (6)  │  │ Cyclical (6) │  │ Binary   ││
+  │  │ hour          │  │ hour_sin     │  │ Flags (5)││
+  │  │ day_of_week   │  │ hour_cos     │  │ is_wknd  ││
+  │  │ month         │  │ dow_sin      │  │ is_peak  ││
+  │  │ quarter       │  │ dow_cos      │  │ is_sumr  ││
+  │  │ day_of_year   │  │ month_sin    │  │ is_wntr  ││
+  │  │ week_of_year  │  │ month_cos    │  │ is_holdy ││
+  │  └──────────────┘  └──────────────┘  └──────────┘│
+  │  ┌──────────────┐  ┌──────────────┐  ┌──────────┐│
+  │  │ Hist Lags (2)│  │ Rolling (3)  │  │ Inter (1)││
+  │  │ lag_24h      │  │ roll_mean24  │  │ hour ×   ││
+  │  │ lag_168h     │  │ roll_std24   │  │ weekend  ││
+  │  │              │  │ roll_mean168 │  │          ││
+  │  │ ⚠ No lag_1h │  │ ⚠ Shifted   │  │          ││
+  │  │ (prevents   │  │ by 24h to   │  │          ││
+  │  │  leakage)   │  │ prevent leak│  │          ││
+  │  └──────────────┘  └──────────────┘  └──────────┘│
+  └──────────────────────────────────────────────────┘
+  Arrow ↓ labeled "Engineered Features"
+
+Sub-component 2C — Processed Storage (cylinder/database shape):
+  ┌──────────────────────────────┐
+  │ 💾 processed/                │
+  │ PJME_processed.csv           │
+  │ AEP_processed.csv            │
+  │ DAYTON_processed.csv         │
+  │ COMED_processed.csv          │
+  │ DOM_processed.csv            │
+  │ (23 features + target each)  │
+  └──────────────────────────────┘
+
+Arrow labeled "Feature Matrix (X, y)" pointing right →
+
+─────────────────────────────────────────────
+LAYER 3: MODEL TRAINING ENGINE (Green #D1FAE5)
+─────────────────────────────────────────────
+Title: "Model Training Engine"
+Subtitle: "train_all.py"
+
+Sub-component 3A — Data Split:
+  ┌──────────────────────────────┐
+  │ CHRONOLOGICAL SPLIT          │
+  │ ┌────────────────┬─────────┐ │
+  │ │  80% TRAIN     │ 20% TEST│ │
+  │ │  (by date)     │         │ │
+  │ └────────────────┴─────────┘ │
+  │ No random shuffle — prevents │
+  │ temporal data leakage        │
+  └──────────────────────────────┘
+  Arrow ↓
+
+Sub-component 3B — Hyperparameter Optimization (diamond shape):
+  ◇ GridSearchCV
+  │ 3-Fold TimeSeriesSplit
+  │ Fold 1: [Train₁ | Val₁]
+  │ Fold 2: [Train₁₂ | Val₂]  
+  │ Fold 3: [Train₁₂₃ | Val₃]
+  │ (Always chronological)
+  Arrow ↓
+
+Sub-component 3C — Model Zoo (5 boxes in a row):
+  ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐ ┌──────┐
+  │Linear│ │Random│ │Grad  │ │XG    │ │Light │
+  │Regr. │ │Forest│ │Boost │ │Boost │ │GBM   │
+  │      │ │      │ │      │ │      │ │      │
+  │Base- │ │Bagged│ │Seq.  │ │Reg.  │ │Hist- │
+  │line  │ │Trees │ │Ensem.│ │Boost │ │ogram │
+  └──────┘ └──────┘ └──────┘ └──────┘ └──────┘
+  Label below: "5 Models × 5 Regions = 25 Trained Artifacts"
+  Arrow ↓
+
+Sub-component 3D — Output Artifacts:
+  ┌──────────────────────────────────────┐
+  │ 📦 OUTPUT ARTIFACTS                  │
+  │                                      │
+  │  models/*.pkl    metrics/*.json      │
+  │  (25 model       (R², RMSE, MAE,    │
+  │   files)          MAPE per model)    │
+  │                                      │
+  │  Best: R² = 0.8647                   │
+  │  (PJME, Gradient Boosting)           │
+  └──────────────────────────────────────┘
+
+Arrow labeled "Serialized Models + Metrics" pointing right →
+
+─────────────────────────────────────────────
+LAYER 4: FASTAPI BACKEND (Red/Pink #FEE2E2)
+─────────────────────────────────────────────
+Title: "Serving Layer — FastAPI Backend"
+Subtitle: "api.py (Port 8000)"
+
+Sub-component 4A — Model Loader:
+  ┌──────────────────────────────┐
+  │ ⚡ STARTUP LOADER            │
+  │ Load 25 .pkl models          │
+  │ Load 5 processed datasets    │
+  │ Load metrics JSON            │
+  │ Cache all in memory          │
+  └──────────────────────────────┘
+  Arrow ↓
+
+Sub-component 4B — REST API Endpoints (6 boxes in 2×3 grid):
+  ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+  │ GET              │ │ GET              │ │ POST             │
+  │ /api/regions     │ │ /api/models/{r}  │ │ /api/predict     │
+  │ Region metadata  │ │ Model metrics    │ │ Point forecast   │
+  │ + date ranges    │ │ per region       │ │ + 24h horizon    │
+  └─────────────────┘ └─────────────────┘ └─────────────────┘
+  ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐
+  │ POST             │ │ GET              │ │ GET              │
+  │ /api/compare     │ │ /api/history/{r} │ │ /api/stats/{r}   │
+  │ All 5 models on  │ │ Historical data  │ │ Aggregated       │
+  │ same timestamp   │ │ for EDA charts   │ │ hourly/monthly   │
+  └─────────────────┘ └─────────────────┘ └─────────────────┘
+  Arrow ↓
+
+Sub-component 4C — Intelligence Modules (2 boxes side by side):
+  ┌──────────────────────┐  ┌──────────────────────┐
+  │ 🧠 AI NARRATIVE      │  │ ⚠️ SIMULATION MODULE │
+  │ ENGINE               │  │                      │
+  │ • Grid phase detect  │  │ • Holiday Override   │
+  │ • Error diagnosis    │  │   (is_holiday → 1)   │
+  │ • 5-sentence context │  │ • Outage Simulator   │
+  │ • Anomaly alert mode │  │   (actual × 0.65)    │
+  │   (error > 25%)      │  │ • Critical alert     │
+  └──────────────────────┘  └──────────────────────┘
+
+Arrow labeled "JSON API Responses" pointing right →
+
+─────────────────────────────────────────────
+LAYER 5: INTERACTIVE DASHBOARD (Purple #EDE9FE)
+─────────────────────────────────────────────
+Title: "Frontend Dashboard"
+Subtitle: "HTML + CSS + JavaScript + Chart.js"
+
+5 page boxes stacked vertically:
+  ┌──────────────────────────────────────┐
+  │ ⚡ PAGE 1: DEMAND FORECASTER         │
+  │ Region/Model/Date selectors          │
+  │ 48h history + 24h forecast chart     │
+  │ KPI cards (Predicted, Actual, Error) │
+  │ AI Demand Narrative panel            │
+  │ 🌲 Holiday Sim  ⚠️ Outage Sim       │
+  ├──────────────────────────────────────┤
+  │ ⚖ PAGE 2: MODEL COMPARISON          │
+  │ Run all 5 models on same input       │
+  │ Side-by-side bar charts              │
+  │ Ranked comparison table              │
+  ├──────────────────────────────────────┤
+  │ 📊 PAGE 3: DATA EXPLORER            │
+  │ Historical timeline (7/30/90/365d)   │
+  │ Distribution histogram               │
+  │ Summary statistics                    │
+  ├──────────────────────────────────────┤
+  │ 📈 PAGE 4: ANALYTICS                │
+  │ Hourly avg, Weekly avg, Monthly avg  │
+  │ Yearly trend, Peak vs Off-Peak       │
+  ├──────────────────────────────────────┤
+  │ 💾 PAGE 5: SAVED SUMMARIES          │
+  │ Auto-logged prediction history       │
+  │ Persistent via localStorage          │
+  │ Clear History button                 │
+  └──────────────────────────────────────┘
+
+Arrow pointing right → to a User icon (stick figure or person icon)
+  ┌──────────┐
+  │ 👤 Grid  │
+  │ Operator │
+  │ / User   │
+  └──────────┘
+
+─────────────────────────────────────────────
+ADDITIONAL ANNOTATIONS TO INCLUDE
+─────────────────────────────────────────────
+
+1. At the bottom of the diagram, add a horizontal annotation bar:
+   "Tech Stack: Python 3.x | pandas | scikit-learn | XGBoost | LightGBM | FastAPI | Uvicorn | Chart.js | HTML/CSS/JS"
+
+2. Between Layer 2 and Layer 3, add a small warning callout box:
+   "⚠ DATA LEAKAGE PREVENTION
+   • No lag_1h / lag_2h features
+   • Rolling windows shifted by 24h
+   • TimeSeriesSplit cross-validation"
+
+3. Between Layer 3 and Layer 4, add a small note:
+   "Total Training Time: 61.7 minutes
+   25 models across 5 regions"
+
+4. Add a legend in the corner:
+   Blue = Data | Yellow = Processing | Green = Training | Red = Serving | Purple = Interface
+
+===== DESIGN REQUIREMENTS =====
+- White background (for research paper printing)
+- Clean sans-serif font (Arial or Helvetica)
+- Each layer clearly separated with distinct pastel background colors
+- Arrows should be solid black with labels
+- Sub-components should have thin borders
+- Use consistent rounded rectangles for processes, cylinders for storage, diamonds for decision points
+- Document shapes for CSV files
+- The diagram should be wide (landscape orientation, approximately 16:9 aspect ratio)
+- Resolution should be high enough for IEEE two-column format (minimum 300 DPI)
+- Keep it professional and technical — no cartoonish elements

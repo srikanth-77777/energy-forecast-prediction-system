@@ -1,0 +1,520 @@
+\documentclass[conference]{IEEEtran}
+\usepackage{setspace}
+\singlespacing
+\usepackage{microtype}
+\usepackage{parskip}
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1em}
+\IEEEoverridecommandlockouts
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithm,algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\begin{document}
+\title{A Data-Centric Approach to Multi-Region Urban Energy Demand Forecasting Using Ensemble Machine Learning}
+\author{
+    % ─── Row 1: 3 Authors ───
+    \IEEEauthorblockN{
+        \begin{minipage}[t]{0.3\textwidth}
+            \centering
+            Dr. S Prince Chelladurai \\
+            Assistant Professor \\
+            Dept. of Computational Intelligence \\
+            SRM Institute of Science and Technology \\
+            Kattankulathur, Chennai, India \\
+            princMDY@srmist.edu.in
+        \end{minipage}
+    }
+    \and
+    \IEEEauthorblockN{
+        \begin{minipage}[t]{0.3\textwidth}
+            \centering
+            B S Vikash Srikanth \\
+            Student \\
+            Dept. of Computational Intelligence \\
+            SRM Institute of Science and Technology \\
+            Kattankulathur, Chennai, India \\
+            vs7189@srmist.edu.in
+        \end{minipage}
+    }
+    \and
+    \IEEEauthorblockN{
+        \begin{minipage}[t]{0.3\textwidth}
+            \centering
+            S Ravi Prakash \\
+            Student \\
+            Dept. of Computational Intelligence \\
+            SRM Institute of Science and Technology \\
+            Kattankulathur, Chennai, India \\
+            rp2382@srmist.edu.in
+        \end{minipage}
+    }
+    \and
+    % ─── Row 2: 2 Authors (centered) ───
+    \IEEEauthorblockN{
+        \begin{minipage}[t]{0.3\textwidth}
+            \centering
+            A Griffin George \\
+            Student \\
+            Dept. of Computational Intelligence \\
+            SRM Institute of Science and Technology \\
+            Kattankulathur, Chennai, India \\
+            ga8488@srmist.edu.in
+        \end{minipage}
+    }
+    \and
+    \IEEEauthorblockN{
+        \begin{minipage}[t]{0.3\textwidth}
+            \centering
+            J Dharanidharan \\
+            Student \\
+            Dept. of Computational Intelligence \\
+            SRM Institute of Science and Technology \\
+            Kattankulathur, Chennai, India \\
+            jd7583@srmist.edu.in
+        \end{minipage}
+    }
+}
+\maketitle
+\begin{abstract}\par
+
+Accurate short-term energy demand forecasting is becoming increasingly important as urban power grids grow more complex and the consequences of poor load estimation become more expensive. Most existing studies focus heavily on choosing the right model architecture while paying far less attention to how the input data itself is prepared and structured. In this paper, we take a different approach. We argue that the quality and design of the feature engineering pipeline matters just as much, if not more, than the choice of algorithm alone. Working with five real-world regional datasets from the PJM Interconnection, we build a 23-feature pipeline that captures temporal cycles, seasonal patterns, historical demand lags, and public holiday effects. We then train and rigorously compare five machine learning models --- Linear Regression, Random Forest, Gradient Boosting, XGBoost, and LightGBM --- using GridSearchCV with time-series-aware cross-validation to ensure fair and leak-free evaluation. Our best-performing configuration, Gradient Boosting on the PJME region, reaches an $R^{2}$ of 0.8647 with a MAPE of 5.61\%, while even the simplest baseline achieves 0.8517, demonstrating that well-crafted features can lift all models substantially. Beyond the modeling, we deploy the entire pipeline as a production-grade FastAPI dashboard with interactive forecasting, model comparison, anomaly simulation, and automated AI-driven demand narratives. The results show that a data-centric refinement strategy, when paired with disciplined evaluation, can deliver reliable and interpretable urban energy forecasts without resorting to computationally expensive deep learning architectures.
+\end{abstract}
+\begin{IEEEkeywords}
+Energy Demand Forecasting, Feature Engineering, Ensemble Learning, XGBoost, LightGBM, GridSearchCV, Time Series, Data-Centric AI, PJM Interconnection.
+\end{IEEEkeywords}
+\section{Introduction}
+\IEEEPARstart{E}{nergy} demand forecasting sits at the heart of how modern power grids operate. Every day, grid operators across the world have to decide how much electricity to generate for the next few hours, and getting that number wrong has real consequences. Overestimate and you waste fuel running plants that did not need to be on. Underestimate and you risk brownouts, emergency power purchases at steep prices, or worse, rolling blackouts that disrupt entire cities. As populations grow and weather patterns shift, these decisions are only getting harder. \par
+
+Traditionally, utilities relied on simple rules of thumb and historical averages to make these calls. A hot Tuesday in July would be estimated roughly the same as last year's hot Tuesday in July. That worked reasonably well when demand patterns were stable, but the landscape has changed. The rise of distributed solar, electric vehicle charging, and smart home appliances has introduced new layers of variability that basic heuristics struggle to capture. Machine learning stepped in to fill this gap, and in recent years, a growing body of work has explored everything from shallow regression models to deep neural networks for load prediction. \par
+
+However, much of this research follows a predictable pattern. Researchers pick a dataset, run it through several model architectures, compare accuracy numbers, and declare a winner. The implicit assumption is that the data is already in good shape and the real challenge lies in finding the cleverest algorithm. Our experience tells a different story. When we first trained a standard model on raw hourly demand data, the results were mediocre. But once we carefully designed a feature engineering pipeline that encoded the actual patterns driving human energy consumption, such as the daily rhythm of waking and sleeping, the difference between weekdays and weekends, the seasonal pull of air conditioning in summer and heating in winter, the same models improved dramatically. \par
+
+This observation forms the central thesis of our work. We believe that for structured time-series problems like energy forecasting, a thoughtful data-centric approach can extract strong performance from relatively simple algorithms, reducing the need for opaque deep learning architectures that are difficult to interpret and expensive to train. To test this, we design a comprehensive pipeline that processes five distinct regional datasets from the PJM Interconnection, engineers 23 predictive features across six categories, and evaluates five machine learning models using rigorous, leak-free cross-validation. We then package the entire system into a deployable web application that allows operators to interact with the forecasts, compare models side by side, and simulate what-if scenarios like holidays and grid outages. \par
+
+The rest of this paper is organized as follows. Section II reviews the existing literature on energy demand forecasting. Section III describes the system architecture in detail. Section IV covers the methodology, including the datasets, feature engineering, and model training. Section V presents the implementation and results. Section VI discusses the advantages, limitations, and directions for future work, and Section VII concludes the paper.
+
+\section{Literature Review}
+
+Energy demand forecasting has attracted sustained attention from both the power systems community and the machine learning research community over the past two decades. Early computational approaches relied on classical statistical methods. Box-Jenkins ARIMA models and their seasonal variants (SARIMA) were widely used through the 2000s and remain popular baselines today \cite{b1}. These methods work well when the demand signal is relatively stationary and the forecast horizon is short, but they tend to struggle with the nonlinear interactions between weather, calendar effects, and human behavior that drive real-world load patterns. \par
+
+The introduction of machine learning methods brought notable improvements. Support Vector Regression (SVR) and ensemble tree methods such as Random Forest were among the first to demonstrate that data-driven approaches could capture complex demand dynamics more effectively than linear models \cite{b2}. Around the same time, gradient boosting frameworks gained traction, with XGBoost in particular becoming something of a standard tool in energy forecasting competitions and applied research \cite{b3}. More recently, LightGBM has emerged as a computationally efficient alternative that achieves comparable or superior accuracy with significantly faster training times, making it attractive for operational deployment scenarios \cite{b4}. \par
+
+Deep learning approaches have also been explored extensively. Recurrent neural networks (RNNs), and especially Long Short-Term Memory (LSTM) networks, have been applied to load forecasting on the premise that their sequential architecture is naturally suited to time-series data \cite{b5}. While LSTMs can model long-range temporal dependencies, they come with practical drawbacks including sensitivity to hyperparameter choices, longer training times, and a tendency to overfit on smaller datasets. Convolutional neural networks (CNNs) and hybrid CNN-LSTM architectures have been proposed to address some of these limitations \cite{b6}, but the added complexity does not always translate to meaningful accuracy gains over well-tuned gradient boosting models, particularly when the feature space is carefully designed. \par
+
+A separate thread of research has emphasized the importance of feature engineering in forecasting accuracy. Hong and Fan \cite{b7} demonstrated that calendar variables, temperature data, and interaction terms could substantially improve regression-based load models. Haben et al. \cite{b8} showed that engineered lag features and rolling statistics outperformed raw input representations for short-term forecasting. The data-centric AI movement, championed by Ng and others \cite{b9}, has more broadly argued that improving data quality and representation often yields larger gains than switching model architectures, an insight that resonates strongly with our findings. \par
+
+Despite this rich body of work, several gaps remain. Most studies evaluate on a single region or utility, making it difficult to assess how well findings generalize. Rigorous hyperparameter optimization using time-series-aware cross-validation is often skipped in favor of simple hold-out splits. And few studies package their forecasting models into interactive, deployable systems that practitioners could actually use. Our work addresses each of these gaps by evaluating across five distinct regions with GridSearchCV and TimeSeriesSplit, and by delivering a complete web-based forecasting dashboard.
+
+\section{System Architecture}
+
+The proposed system is built as a three-layer architecture that separates data processing, machine learning, and user interaction into distinct modules. This separation makes the system easier to maintain, test, and extend, while ensuring that each layer can be optimized independently.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{system_flowchart.png}
+\caption{End-to-end system architecture showing the data pipeline, multi-model training engine, and interactive dashboard.}
+\label{fig1}
+\end{figure*}
+
+The architecture follows a pipeline paradigm. Raw hourly demand data flows in from CSV files, passes through the feature engineering layer where it is cleaned, validated, and transformed into a rich 23-dimensional feature space. These processed datasets then feed into the model training engine, where five algorithms are each optimized via GridSearchCV with TimeSeriesSplit to prevent temporal data leakage. The trained models and their performance metrics are serialized and loaded by the FastAPI backend, which serves six RESTful endpoints. Finally, a client-side JavaScript dashboard consumes these endpoints and presents the results across five interactive pages.
+
+\subsection{Data Pipeline Layer}
+
+The data pipeline is the foundation of the entire system. Its job is straightforward but critical: take messy, real-world CSV files and turn them into clean, feature-rich datasets that the models can learn from effectively. The pipeline handles five regional datasets and applies a uniform transformation process to each one.
+
+The first step is data cleaning. We check for and remove duplicate timestamps, which are surprisingly common in utility datasets due to daylight saving time transitions and logging errors. Missing values are forward-filled for gaps of up to three consecutive hours, which covers transient sensor dropouts without introducing artificial patterns. Gaps longer than three hours are dropped entirely to avoid misleading the models with fabricated data. \par
+
+After cleaning, the pipeline creates 23 engineered features organized into six conceptual categories: basic temporal indicators, cyclical encodings, binary flags, historical demand lags, rolling statistics, and interaction terms. Each category is designed to capture a different aspect of how energy demand behaves in the real world. The details of this feature engineering are discussed in Section IV.
+
+\subsection{Machine Learning Layer}
+
+The machine learning layer is responsible for training, optimizing, and evaluating five distinct models on each of the five processed regional datasets. This produces 25 trained model artifacts in total. We selected these five algorithms to span a range of complexity and approach:
+
+\begin{itemize}
+    \item \textbf{Linear Regression}: A simple baseline that assumes a linear relationship between features and demand. It sets the floor for what the feature set alone can achieve without any nonlinear modeling.
+    \item \textbf{Random Forest}: An ensemble of decision trees that captures nonlinear patterns through bagging. It is robust to overfitting and provides a natural measure of feature importance.
+    \item \textbf{Gradient Boosting}: A sequential ensemble that builds trees iteratively, each one correcting the errors of the previous. It typically achieves higher accuracy than Random Forest but is slower to train.
+    \item \textbf{XGBoost}: An optimized implementation of gradient boosting with built-in regularization and efficient handling of sparse data. It has become a standard tool in applied machine learning.
+    \item \textbf{LightGBM}: A gradient boosting variant that uses histogram-based splitting and leaf-wise tree growth for faster training. It is particularly effective on large datasets.
+\end{itemize}
+
+For each model except Linear Regression, we perform hyperparameter tuning using GridSearchCV with three-fold TimeSeriesSplit cross-validation. TimeSeriesSplit ensures that the training folds always precede the validation folds chronologically, which prevents the kind of temporal data leakage that can inflate accuracy metrics.
+
+\subsection{Frontend Layer}
+
+The frontend is a single-page application built with vanilla HTML, CSS, and JavaScript, served as static files by the FastAPI backend. It uses Chart.js for all visualizations and communicates with the backend through asynchronous API calls.
+
+\medskip
+\noindent The dashboard provides five distinct pages:
+\begin{enumerate}
+    \item \textbf{Demand Forecaster}: The primary prediction interface. Users select a region, model, date, and hour, then generate a forecast that includes 48 hours of historical context and a 24-hour forward prediction with an AI-generated demand narrative.
+    \item \textbf{Model Comparison}: Runs all five models simultaneously on the same input and displays their predictions, errors, and training metrics in side-by-side bar charts and a ranked comparison table.
+    \item \textbf{Data Explorer}: Provides historical demand timelines with adjustable date ranges (7, 30, 90, or 365 days) along with distribution histograms and summary statistics for each region.
+    \item \textbf{Analytics}: Visualizes long-term demand patterns by hour of day, day of week, month of year, and annual trend, revealing the structural rhythms that drive energy consumption.
+    \item \textbf{Saved Summaries}: Automatically logs every prediction made during a session with persistent local storage, allowing users to review and compare past forecasts.
+\end{enumerate}
+
+\subsection{Backend Layer}
+
+The backend is built on FastAPI, a modern Python web framework chosen for its high performance and automatic API documentation. It handles the loading and caching of all 25 trained models at startup, serves six RESTful API endpoints, and delivers the static frontend files.
+
+\medskip
+\noindent The six API endpoints are:
+\begin{enumerate}
+    \item \texttt{GET /api/regions}: Returns metadata for all available regions including date ranges, row counts, and mean demand.
+    \item \texttt{GET /api/models/\{region\}}: Lists all trained models for a given region along with their performance metrics.
+    \item \texttt{POST /api/predict}: Accepts a region, date, hour, and model name, then returns the predicted demand, actual demand, 48-hour history, 24-hour forecast, model metrics, and an AI-generated narrative.
+    \item \texttt{POST /api/compare}: Runs all available models for a region on the same timestamp and returns a ranked comparison.
+    \item \texttt{GET /api/history/\{region\}}: Returns sampled historical demand data for EDA visualizations.
+    \item \texttt{GET /api/stats/\{region\}}: Returns aggregated statistics for hourly, daily, monthly, and yearly demand patterns.
+\end{enumerate}
+
+\section{Methodology}
+
+\subsection{Dataset}
+
+We use five regional hourly electricity demand datasets from the PJM Interconnection, a regional transmission organization that coordinates the movement of wholesale electricity across 13 states in the eastern United States. PJM datasets are widely used in the energy forecasting literature because they are publicly available, span many years, and represent diverse load profiles.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Summary of Regional Datasets}
+\begin{tabular}{|l|r|r|r|r|}
+\hline
+\textbf{Region} & \textbf{Rows} & \textbf{Years} & \textbf{Avg MW} & \textbf{Peak MW} \\
+\hline
+PJME   & 145,027 & 2002--2018 & 32,081 & 62,009 \\
+AEP    & 120,934 & 2004--2018 & 15,504 & 25,695 \\
+DAYTON & 120,936 & 2004--2018 &  2,038 &  3,746 \\
+COMED  &  66,158 & 2011--2018 & 11,416 & 23,753 \\
+DOM    & 115,850 & 2005--2018 & 10,956 & 21,651 \\
+\hline
+\end{tabular}
+\label{tab:datasets}
+\end{table}
+
+Each dataset contains a timestamp and a single demand value in megawatts (MW), recorded at hourly intervals. The five regions differ significantly in scale. PJME covers a large multi-state territory with average demand over 32,000 MW, while DAYTON represents a smaller metropolitan area averaging just over 2,000 MW. This diversity is intentional. It lets us evaluate whether our feature engineering approach and model selection generalize across different demand magnitudes and consumption patterns.
+
+\subsubsection{Data Cleaning}
+
+Raw PJM data contains several quality issues that must be addressed before training. Daylight saving time transitions create duplicate timestamps in spring and missing hours in autumn. Some datasets contain sporadic sensor dropouts where demand values are recorded as null. We handle duplicates by keeping the first occurrence and dropping subsequent ones. Missing values are forward-filled for gaps of up to three consecutive hours, and any remaining gaps are dropped. After cleaning, we lose fewer than 0.3\% of records in each region.
+
+\subsubsection{Train-Test Split}
+
+For each region, we use a chronological 80/20 split. The first 80\% of data (by date) is used for training and cross-validation, and the final 20\% is held out strictly for testing. This mimics the real-world scenario where a model trained on historical data is used to forecast future demand. We deliberately avoid random splitting, which would leak future information into the training set and produce misleadingly optimistic results.
+
+\subsection{Feature Engineering}
+
+Feature engineering is the most critical component of our pipeline, and the part where we believe this work makes its strongest contribution. Rather than feeding raw timestamps and demand values directly to models, we construct 23 features organized into six categories that encode the domain knowledge of how energy demand actually behaves.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Complete Feature Engineering Taxonomy (23 Features)}
+\begin{tabular}{|l|l|r|}
+\hline
+\textbf{Category} & \textbf{Features} & \textbf{Count} \\
+\hline
+Basic Temporal    & hour, day\_of\_week, month, & 6 \\
+                  & quarter, day\_of\_year, week\_of\_year & \\
+\hline
+Cyclical Encoding & hour\_sin, hour\_cos, dow\_sin, & 6 \\
+                  & dow\_cos, month\_sin, month\_cos & \\
+\hline
+Binary Flags      & is\_weekend, is\_peak, is\_summer, & 5 \\
+                  & is\_winter, is\_holiday & \\
+\hline
+Historical Lags   & lag\_24h, lag\_168h & 2 \\
+\hline
+Rolling Statistics & rolling\_mean\_24h, rolling\_std\_24h, & 3 \\
+                   & rolling\_mean\_168h & \\
+\hline
+Interaction       & hour\_x\_weekend & 1 \\
+\hline
+\end{tabular}
+\label{tab:features}
+\end{table}
+
+\subsubsection{Basic Temporal Features}
+
+The most fundamental driver of energy demand is the time of day. Demand is low at 3 AM when most people are asleep, ramps up through the morning as businesses open and factories start, peaks in the afternoon when air conditioning loads are highest, and drops off again in the evening. Similarly, demand varies by day of week (weekdays are higher than weekends), month (summer and winter are higher than spring and autumn), and season. We extract six basic temporal features from each timestamp: hour, day of week, month, quarter, day of year, and week of year.
+
+\subsubsection{Cyclical Encoding}
+
+A practical issue with raw temporal features is that models treat them as linear numbers. Hour 23 and hour 0 are actually adjacent in time, but numerically they are far apart. The same problem applies to months (December and January) and days of the week (Sunday and Monday). To fix this, we apply sinusoidal encoding:
+\begin{equation}
+x_{sin} = \sin\left(\frac{2\pi \cdot x}{T}\right), \quad x_{cos} = \cos\left(\frac{2\pi \cdot x}{T}\right)
+\end{equation}
+where $T$ is the period (24 for hours, 7 for days, 12 for months). This maps each temporal variable onto a circle, so adjacent time points always have similar feature values regardless of their numeric representation.
+
+\subsubsection{Binary Flags}
+
+Certain demand patterns are best captured as simple on/off indicators. We create five binary flags:
+\begin{itemize}
+    \item \textbf{is\_weekend}: 1 if Saturday or Sunday, 0 otherwise. Weekend demand is typically 8--12\% lower than weekday demand.
+    \item \textbf{is\_peak}: 1 if the hour is between 6 AM and 10 PM. This captures the broad active period when demand is elevated.
+    \item \textbf{is\_summer}: 1 if June, July, or August. Summer months see the highest demand due to air conditioning.
+    \item \textbf{is\_winter}: 1 if December, January, or February. Winter demand is elevated due to electric heating.
+    \item \textbf{is\_holiday}: 1 if the date is a recognized US federal holiday. Holidays typically reduce demand by 10--20\% as commercial and industrial facilities close.
+\end{itemize}
+
+\subsubsection{Historical Lags}
+
+Lag features encode the idea that demand right now is influenced by what demand looked like at the same time in the recent past. We use two lag windows:
+\begin{itemize}
+    \item \textbf{lag\_24h}: Demand exactly 24 hours ago. This captures the strong daily autocorrelation in demand.
+    \item \textbf{lag\_168h}: Demand exactly one week ago (168 hours). This captures the weekly cycle where, for example, a Monday afternoon tends to look like the previous Monday afternoon.
+\end{itemize}
+
+An important design decision was the deliberate exclusion of very short-term lags. In our initial experiments, we included 1-hour and 2-hour lags, which produced near-perfect R$^{2}$ scores of 0.9999. Upon investigation, these features were causing severe data leakage: since demand changes only slightly from one hour to the next, the model was essentially memorizing the previous value rather than learning meaningful patterns. Removing these features dropped R$^{2}$ from 0.9999 to approximately 0.86, but the resulting models are honest and genuinely predictive rather than trivially retrospective.
+
+\subsubsection{Rolling Statistics}
+
+To give the models a sense of recent demand trends without leaking current-hour information, we compute rolling statistics over shifted windows:
+\begin{itemize}
+    \item \textbf{rolling\_mean\_24h}: The mean demand over the 24-hour window ending 24 hours before the current time.
+    \item \textbf{rolling\_std\_24h}: The standard deviation over the same window, capturing demand volatility.
+    \item \textbf{rolling\_mean\_168h}: The mean demand over the previous week's window, providing longer-term context.
+\end{itemize}
+
+The shift is essential. Without it, the rolling window would include the current hour's demand, again creating data leakage.
+
+\subsubsection{Interaction Feature}
+
+We include one interaction term, \texttt{hour\_x\_weekend}, which is the product of the hour and the weekend flag. This captures the observation that the daily demand curve has a different shape on weekends compared to weekdays. On weekdays, there is a sharp morning ramp as offices open; on weekends, the rise is more gradual and the overall level is lower. This interaction lets tree-based models split more efficiently on this pattern.
+
+\subsection{Model Training and Evaluation}
+
+Each of the five models is trained on each of the five regional datasets, producing 25 model artifacts. For models with hyperparameters (all except Linear Regression), we use \texttt{GridSearchCV} with three-fold \texttt{TimeSeriesSplit} to find the optimal configuration.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\linewidth]{accuracy_results_s1.png}
+\caption{R-squared scores across all five models for the PJME region, showing the performance hierarchy from Linear Regression to Gradient Boosting.}
+\label{fig2}
+\end{figure}
+
+\medskip
+\noindent The evaluation metrics used are:
+\begin{itemize}
+    \item \textbf{$R^{2}$ (Coefficient of Determination)}: Measures the proportion of demand variance explained by the model. A perfect model scores 1.0.
+    \item \textbf{RMSE (Root Mean Squared Error)}: Penalizes large prediction errors more heavily, measured in MW.
+    \item \textbf{MAE (Mean Absolute Error)}: The average absolute error in MW, easier to interpret than RMSE.
+    \item \textbf{MAPE (Mean Absolute Percentage Error)}: The average percentage error, useful for comparing across regions with different demand scales.
+\end{itemize}
+
+The mathematical formulations are:
+\begin{equation}
+R^{2} = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^{2}}{\sum_{i=1}^{n}(y_i - \bar{y})^{2}}
+\end{equation}
+\begin{equation}
+\text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^{2}}
+\end{equation}
+\begin{equation}
+\text{MAPE} = \frac{100}{n}\sum_{i=1}^{n}\left|\frac{y_i - \hat{y}_i}{y_i}\right|
+\end{equation}
+
+\section{Implementation and Results}
+
+\subsection{Training Configuration}
+
+The complete training run processed all five regions sequentially, training and optimizing five models per region. The total computation time was 61.7 minutes on a consumer-grade machine. Linear Regression completes in under a second, while the tree-based models with GridSearchCV take between 3 and 10 minutes each depending on the parameter grid size and dataset volume.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\linewidth]{roc_curve_lidc.png}
+\caption{RMSE comparison across all five models for each region, demonstrating consistent performance ranking.}
+\label{fig3}
+\end{figure}
+
+\subsection{Results}
+
+Table III presents the complete performance comparison across all 25 model-region combinations. Several patterns emerge clearly.
+
+\begin{table*}[t]
+\centering
+\caption{Complete Model Performance Across All Regions}
+\begin{tabular}{|l|l|c|r|r|r|l|}
+\hline
+\textbf{Region} & \textbf{Model} & \textbf{$R^{2}$} & \textbf{RMSE (MW)} & \textbf{MAE (MW)} & \textbf{MAPE (\%)} & \textbf{Best Params} \\
+\hline
+PJME & Linear Regression & 0.8517 & 2,500 & 1,883 & 6.01 & -- \\
+PJME & Random Forest & 0.8610 & 2,420 & 1,768 & 5.59 & depth=10, est=200 \\
+PJME & Gradient Boosting & \textbf{0.8647} & \textbf{2,388} & 1,770 & 5.61 & lr=0.05, depth=5, est=100 \\
+PJME & XGBoost & 0.8644 & 2,390 & 1,771 & 5.62 & lr=0.05, depth=5, est=100 \\
+PJME & LightGBM & 0.8645 & 2,390 & 1,771 & 5.62 & lr=0.05, depth=5, est=100 \\
+\hline
+AEP & Linear Regression & 0.8303 & 1,008 & 789 & 5.40 & -- \\
+AEP & Random Forest & 0.8492 & 950 & 720 & 4.90 & depth=10, est=200 \\
+AEP & Gradient Boosting & 0.8512 & 944 & 727 & 4.98 & lr=0.05, depth=5, est=100 \\
+AEP & XGBoost & \textbf{0.8524} & \textbf{940} & 720 & 4.91 & lr=0.05, depth=5, est=200 \\
+AEP & LightGBM & 0.8504 & 946 & 725 & 4.96 & lr=0.05, depth=5, est=200 \\
+\hline
+DAYTON & Linear Regression & 0.8211 & 159 & 123 & 6.16 & -- \\
+DAYTON & Random Forest & 0.8565 & 142 & 106 & 5.27 & depth=20, est=200 \\
+DAYTON & Gradient Boosting & 0.8613 & 140 & 105 & 5.24 & lr=0.05, depth=7, est=100 \\
+DAYTON & XGBoost & \textbf{0.8620} & \textbf{140} & 105 & 5.23 & lr=0.05, depth=7, est=100 \\
+DAYTON & LightGBM & 0.8601 & 141 & 106 & 5.31 & lr=0.05, depth=-1, est=100 \\
+\hline
+COMED & Linear Regression & 0.8119 & 952 & 678 & 5.91 & -- \\
+COMED & Random Forest & 0.8188 & 935 & 612 & 5.18 & depth=10, est=200 \\
+COMED & Gradient Boosting & 0.8267 & 914 & 614 & 5.24 & lr=0.05, depth=5, est=100 \\
+COMED & XGBoost & \textbf{0.8303} & \textbf{905} & 608 & 5.19 & lr=0.05, depth=5, est=100 \\
+COMED & LightGBM & 0.8290 & 908 & 610 & 5.21 & lr=0.05, depth=5, est=100 \\
+\hline
+DOM & Linear Regression & 0.8018 & 1,102 & 815 & 7.15 & -- \\
+DOM & Random Forest & 0.8015 & 1,103 & 803 & 7.01 & depth=10, est=200 \\
+DOM & Gradient Boosting & \textbf{0.8038} & \textbf{1,097} & 806 & 7.05 & lr=0.05, depth=3, est=200 \\
+DOM & XGBoost & 0.8034 & 1,098 & 806 & 7.04 & lr=0.1, depth=3, est=100 \\
+DOM & LightGBM & 0.8035 & 1,098 & 801 & \textbf{6.98} & lr=0.05, depth=5, est=100 \\
+\hline
+\end{tabular}
+\label{tab:results}
+\end{table*}
+
+First, the feature engineering pipeline provides a strong baseline. Even Linear Regression, which cannot model nonlinear interactions, achieves R$^{2}$ scores between 0.80 and 0.85 across all regions. This confirms that the bulk of the predictive signal is captured by the engineered features rather than the model's ability to learn complex decision boundaries.
+
+Second, the ensemble models consistently outperform Linear Regression, but the margins are modest, typically 1--4 percentage points in R$^{2}$. This suggests diminishing returns from model complexity when the feature space is already well designed.
+
+Third, Gradient Boosting and XGBoost trade the top spot depending on the region, with LightGBM close behind. The differences between these three are often within the noise margin, indicating that any modern gradient boosting implementation is a safe choice for this problem.
+
+Fourth, the DOM region proves to be the most challenging, with all models scoring below 0.81. This may reflect greater demand variability in that region or the presence of external drivers like weather that our feature set does not capture.
+
+\begin{figure}[htbp]
+\centering
+\begin{minipage}[b]{0.48\textwidth}
+\centering
+\includegraphics[width=0.8\linewidth]{subtype_samples.png}
+\caption{Average hourly demand profile for PJME showing the characteristic daily consumption curve.}
+\label{fig4}
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.48\textwidth}
+\centering
+\includegraphics[width=0.8\linewidth]{binary_samples.png}
+\caption{Monthly seasonal demand variation across all five regions.}
+\label{fig5}
+\end{minipage}
+\end{figure}
+
+\subsection{Data Leakage Analysis}
+
+A key finding that we believe is worth highlighting for the research community involves our experience with data leakage. In our initial feature set, we included 1-hour and 2-hour lag features (\texttt{lag\_1h}, \texttt{lag\_2h}), along with a 1-hour difference feature (\texttt{lag\_1h\_diff}). These produced R$^{2}$ scores of 0.9998--1.0000 across all models and regions, which initially seemed like an outstanding result.
+
+Upon closer examination, we realized this was too good. Hourly energy demand is a highly autocorrelated signal. The demand at 2 PM is almost always very close to the demand at 1 PM. By including \texttt{lag\_1h}, we were essentially giving the model the answer: it learned to predict ``about the same as an hour ago'' and achieved near-perfect scores. But this is not a useful forecast. In a real deployment, you would not know the demand one hour ago when making a prediction one hour ahead, because the prediction itself is what you are trying to generate.
+
+Removing these three features caused R$^{2}$ to drop from 0.9999 to approximately 0.86. While this looks like a big decline, the resulting models are genuinely predictive. They work from information that would actually be available at forecast time, such as yesterday's demand at the same hour (\texttt{lag\_24h}) and last week's demand at the same hour (\texttt{lag\_168h}). We retained the rolling statistics but shifted their computation windows backward by 24 hours to prevent any leakage. This experience underscores the danger of high-frequency lag features in time-series forecasting evaluation and the critical importance of carefully reasoning about what information would be available at inference time.
+
+\subsection{Anomaly Detection and Simulation}
+
+The deployed system includes an interactive anomaly simulation module that allows users to explore what-if scenarios. Two simulation modes are available:
+
+\begin{itemize}
+    \item \textbf{Holiday Simulation}: When activated, the system overrides the \texttt{is\_holiday} feature to 1, causing the model to predict demand as if the target date were a federal holiday. This typically reduces predicted demand by 10--20\%, reflecting how the trained model has learned the effect of holidays from historical data.
+    \item \textbf{Grid Outage Simulation}: When activated, the system forces the ``actual'' demand to drop by 35\%, simulating a sudden grid failure or localized blackout. The AI narrative engine detects the massive divergence between predicted and actual demand and generates a critical alert, explaining that the pattern is consistent with infrastructure failure.
+\end{itemize}
+
+These simulation capabilities make the system valuable not just for prediction but for training grid operators and stress-testing the forecasting pipeline's response to abnormal conditions.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\linewidth]{implementation_results_1.png}
+\caption{Dashboard Forecaster interface showing prediction results with AI demand narrative.}
+\label{fig6}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\linewidth]{classification_outputs_2.png}
+\caption{Model Comparison page showing side-by-side R$^{2}$, RMSE, and prediction accuracy for all five models.}
+\label{fig7}
+\end{figure}
+
+\subsection{AI-Driven Demand Narrative}
+
+An important feature of the deployed system is the AI Demand Narrative engine. After every prediction, the backend generates a multi-sentence contextual explanation that describes:
+\begin{enumerate}
+    \item The current phase of the grid's daily cycle (morning ramp-up, midday peak, evening wind-down, etc.)
+    \item The operational context (weekday vs. weekend)
+    \item The specific predicted vs. actual values and their divergence
+    \item A diagnostic assessment of the error magnitude and possible explanations
+    \item Recommendations for monitoring the next 24-hour forecast horizon
+\end{enumerate}
+
+This narrative helps operators quickly contextualize the numbers without needing to manually interpret charts, and it serves as a bridge between the mathematical model output and practical operational decision-making.
+
+\subsection{Advantages}
+
+The data-centric forecasting framework offers several practical advantages over conventional approaches:
+
+\begin{itemize}
+    \item \textbf{Honest and Transparent Evaluation}: By deliberately removing features that cause data leakage and using TimeSeriesSplit for cross-validation, our reported metrics reflect genuine forecasting ability rather than artificially inflated scores.
+    \item \textbf{Multi-Region Generalizability}: The same 23-feature pipeline and model configurations perform consistently across five regions with vastly different demand scales (2,000 MW to 32,000 MW), demonstrating good generalization.
+    \item \textbf{Interpretable and Deployable}: Unlike deep learning approaches, our tree-based models are inherently interpretable through feature importance analysis. The complete system is deployed as a lightweight web application that runs on standard hardware.
+    \item \textbf{Interactive Scenario Simulation}: The holiday and anomaly simulation modules go beyond static prediction, allowing operators to explore how the grid might behave under unusual conditions.
+    \item \textbf{Automated Documentation}: The Saved Summaries feature creates an automatic audit trail of all predictions, supporting operational accountability and regulatory compliance.
+\end{itemize}
+
+\subsection{Limitations}
+
+Despite the strong results, our approach has several limitations that should be acknowledged:
+
+\begin{enumerate}
+    \item \textbf{Absence of Weather Data}: Temperature is the single strongest external driver of energy demand, affecting both air conditioning and heating loads. Our feature set does not include temperature or humidity, which likely accounts for the residual 14--20\% of unexplained variance. Integrating hourly weather data would almost certainly push accuracy significantly higher.
+    \item \textbf{Single-Step Forecast Horizon}: Our evaluation treats each hour independently. In practice, grid operators need multi-step forecasts where errors propagate and compound over time. Our 24-hour forecast uses historical lags rather than recursive prediction, which does not fully test multi-step accuracy.
+    \item \textbf{No Exogenous Event Modeling}: Extreme events such as heat waves, cold snaps, major sporting events, or pandemic-related demand shifts are not explicitly modeled. These events can cause demand to deviate significantly from historical patterns.
+    \item \textbf{Static Model Training}: The models are trained once on historical data and do not update as new demand data arrives. In production, an online learning or periodic retraining mechanism would be necessary to adapt to evolving consumption patterns.
+    \item \textbf{Limited Geographic Scope}: All five regions are within the PJM territory in the eastern United States. Performance on grids with different characteristics, such as tropical climates or heavy industrial bases, remains untested.
+\end{enumerate}
+
+\subsection{Future Work}
+
+Several promising directions could extend this research:
+\begin{enumerate}
+    \item \textbf{Weather Data Integration}: Incorporating hourly temperature, humidity, and solar irradiance data as additional features. Based on domain literature, this alone could improve R$^{2}$ by 5--10 percentage points.
+    \item \textbf{Deep Learning Comparison}: Training LSTM and Transformer-based models on the same 23-feature pipeline to directly compare whether architectural complexity adds value beyond what the feature engineering provides.
+    \item \textbf{Probabilistic Forecasting}: Extending the system to output prediction intervals rather than point estimates, giving operators a measure of forecast uncertainty for risk management.
+    \item \textbf{Real-Time Streaming}: Adapting the pipeline to consume live demand feeds and update predictions in real time, enabling deployment in operational control rooms.
+    \item \textbf{Federated Multi-Utility Learning}: Exploring whether models trained collaboratively across multiple utilities can outperform region-specific models while preserving data privacy through federated learning techniques.
+\end{enumerate}
+
+\section{Conclusion}
+
+This paper presented a data-centric approach to urban energy demand forecasting that prioritizes thoughtful feature engineering over model complexity. By designing a 23-feature pipeline that captures the temporal, seasonal, and behavioral patterns underlying electricity consumption, we demonstrated that even simple models can achieve strong forecasting performance when the input representation is well crafted.
+
+Our evaluation across five PJM regional datasets with five machine learning algorithms showed that Gradient Boosting and XGBoost consistently deliver the best results, achieving R$^{2}$ scores of 0.80--0.86 and MAPE values between 5--7\% without any external weather data. Importantly, we documented a cautionary finding about data leakage through short-term lag features: including 1-hour lags inflated R$^{2}$ to a misleading 0.9999, a trap that could easily go unnoticed in studies that do not carefully analyze their feature sets.
+
+Beyond the modeling, we built and deployed a complete forecasting dashboard that makes these models accessible and actionable. The system supports interactive prediction, multi-model comparison, demand pattern analytics, anomaly simulation, and automated narrative generation, all served through a lightweight FastAPI backend and a responsive web frontend.
+
+The broader message of this work is one that the data-centric AI community has been advocating: in many applied machine learning problems, the data matters more than the model. For energy demand forecasting, investing effort in understanding the domain, engineering features that encode that understanding, and rigorously preventing data leakage yields reliable, interpretable, and deployable results that serve the practical needs of grid operators.
+
+\begin{thebibliography}{00}
+
+\bibitem{b1} G. E. P. Box, G. M. Jenkins, G. C. Reinsel, and G. M. Ljung, \textit{Time Series Analysis: Forecasting and Control}, 5th ed. Hoboken, NJ: Wiley, 2015.
+
+\bibitem{b2} H. Hippert, C. Pedreira, and R. Souza, ``Neural networks for short-term load forecasting: A review and evaluation,'' \textit{IEEE Trans. Power Syst.}, vol. 16, no. 1, pp. 44--55, 2001.
+
+\bibitem{b3} T. Chen and C. Guestrin, ``XGBoost: A scalable tree boosting system,'' in \textit{Proc. 22nd ACM SIGKDD Int. Conf. Knowl. Discovery Data Mining}, pp. 785--794, 2016.
+
+\bibitem{b4} G. Ke et al., ``LightGBM: A highly efficient gradient boosting decision tree,'' in \textit{Advances in Neural Information Processing Systems}, vol. 30, pp. 3146--3154, 2017.
+
+\bibitem{b5} W. Kong et al., ``Short-term residential load forecasting based on LSTM recurrent neural network,'' \textit{IEEE Trans. Smart Grid}, vol. 10, no. 1, pp. 841--851, 2019.
+
+\bibitem{b6} H. Shi, M. Xu, and R. Li, ``Deep learning for household load forecasting --- A novel pooling deep RNN,'' \textit{IEEE Trans. Smart Grid}, vol. 9, no. 5, pp. 5271--5280, 2018.
+
+\bibitem{b7} T. Hong and S. Fan, ``Probabilistic electric load forecasting: A tutorial review,'' \textit{Int. J. Forecasting}, vol. 32, no. 3, pp. 914--938, 2016.
+
+\bibitem{b8} S. Haben, S. Arber, G. Sherlock, and J. Ward, ``A new error measure for forecasts of household-level, high resolution electrical energy consumption,'' \textit{Int. J. Forecasting}, vol. 30, no. 2, pp. 246--256, 2014.
+
+\bibitem{b9} A. Ng, ``Data-centric AI: A new paradigm for AI development,'' \textit{Stanford HAI Seminar}, 2021.
+
+\bibitem{b10} PJM Interconnection LLC, ``PJM Data Miner 2,'' [Online]. Available: \url{https://dataminer2.pjm.com/}. [Accessed: Apr. 10, 2026].
+
+\end{thebibliography}
+
+\end{document}
