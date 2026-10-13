@@ -1,0 +1,62 @@
+[
+  {
+    "region": "AEP",
+    "model": "Linear Regression",
+    "metrics": {
+      "mae": 789.04,
+      "rmse": 1007.64,
+      "r2": 0.830301,
+      "mape": 5.4,
+      "train_time_sec": 0.1
+    },
+    "model_file": "AEP_linear_regression.pkl"
+  },
+  {
+    "region": "AEP",
+    "model": "Random Forest",
+    "metrics": {
+      "mae": 719.66,
+      "rmse": 949.8,
+      "r2": 0.849223,
+      "mape": 4.9,
+      "train_time_sec": 286.4
+    },
+    "model_file": "AEP_random_forest.pkl"
+  },
+  {
+    "region": "AEP",
+    "model": "Gradient Boosting",
+    "metrics": {
+      "mae": 727.32,
+      "rmse": 943.63,
+      "r2": 0.851174,
+      "mape": 4.98,
+      "train_time_sec": 232.7
+    },
+    "model_file": "AEP_gradient_boosting.pkl"
+  },
+  {
+    "region": "AEP",
+    "model": "XGBoost",
+    "metrics": {
+      "mae": 719.74,
+      "rmse": 939.87,
+      "r2": 0.852358,
+      "mape": 4.91,
+      "train_time_sec": 23.5
+    },
+    "model_file": "AEP_xgboost.pkl"
+  },
+  {
+    "region": "AEP",
+    "model": "LightGBM",
+    "metrics": {
+      "mae": 725.25,
+      "rmse": 946.05,
+      "r2": 0.850411,
+      "mape": 4.96,
+      "train_time_sec": 53.9
+    },
+    "model_file": "AEP_lightgbm.pkl"
+  }
+]

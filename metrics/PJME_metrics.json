@@ -1,0 +1,62 @@
+[
+  {
+    "region": "PJME",
+    "model": "Linear Regression",
+    "metrics": {
+      "mae": 1882.93,
+      "rmse": 2499.76,
+      "r2": 0.851684,
+      "mape": 6.01,
+      "train_time_sec": 0.1
+    },
+    "model_file": "PJME_linear_regression.pkl"
+  },
+  {
+    "region": "PJME",
+    "model": "Random Forest",
+    "metrics": {
+      "mae": 1768.22,
+      "rmse": 2419.62,
+      "r2": 0.861041,
+      "mape": 5.59,
+      "train_time_sec": 353.5
+    },
+    "model_file": "PJME_random_forest.pkl"
+  },
+  {
+    "region": "PJME",
+    "model": "Gradient Boosting",
+    "metrics": {
+      "mae": 1770.03,
+      "rmse": 2387.72,
+      "r2": 0.864681,
+      "mape": 5.61,
+      "train_time_sec": 321.6
+    },
+    "model_file": "PJME_gradient_boosting.pkl"
+  },
+  {
+    "region": "PJME",
+    "model": "XGBoost",
+    "metrics": {
+      "mae": 1770.89,
+      "rmse": 2390.21,
+      "r2": 0.864399,
+      "mape": 5.62,
+      "train_time_sec": 27.6
+    },
+    "model_file": "PJME_xgboost.pkl"
+  },
+  {
+    "region": "PJME",
+    "model": "LightGBM",
+    "metrics": {
+      "mae": 1770.52,
+      "rmse": 2389.59,
+      "r2": 0.864469,
+      "mape": 5.62,
+      "train_time_sec": 59.0
+    },
+    "model_file": "PJME_lightgbm.pkl"
+  }
+]

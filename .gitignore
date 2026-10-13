@@ -67,17 +67,14 @@ coverage.xml
 # Windows
 Thumbs.db
 
-# Data and outputs (generated/large files)
+# Data and outputs
 data/
-processed/
-models/
-metrics/
 outputs/
 *.h5
-*.pkl
 *.parquet
-*.csv
 *.zip
+*.docx
+*.png
 
 # Logs
 *.log

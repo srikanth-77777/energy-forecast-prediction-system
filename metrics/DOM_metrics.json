@@ -1,0 +1,62 @@
+[
+  {
+    "region": "DOM",
+    "model": "Linear Regression",
+    "metrics": {
+      "mae": 814.97,
+      "rmse": 1102.5,
+      "r2": 0.801828,
+      "mape": 7.15,
+      "train_time_sec": 0.0
+    },
+    "model_file": "DOM_linear_regression.pkl"
+  },
+  {
+    "region": "DOM",
+    "model": "Random Forest",
+    "metrics": {
+      "mae": 803.06,
+      "rmse": 1103.44,
+      "r2": 0.801492,
+      "mape": 7.01,
+      "train_time_sec": 571.6
+    },
+    "model_file": "DOM_random_forest.pkl"
+  },
+  {
+    "region": "DOM",
+    "model": "Gradient Boosting",
+    "metrics": {
+      "mae": 806.4,
+      "rmse": 1096.88,
+      "r2": 0.803843,
+      "mape": 7.05,
+      "train_time_sec": 468.2
+    },
+    "model_file": "DOM_gradient_boosting.pkl"
+  },
+  {
+    "region": "DOM",
+    "model": "XGBoost",
+    "metrics": {
+      "mae": 805.99,
+      "rmse": 1098.23,
+      "r2": 0.80336,
+      "mape": 7.04,
+      "train_time_sec": 54.0
+    },
+    "model_file": "DOM_xgboost.pkl"
+  },
+  {
+    "region": "DOM",
+    "model": "LightGBM",
+    "metrics": {
+      "mae": 801.38,
+      "rmse": 1097.79,
+      "r2": 0.803519,
+      "mape": 6.98,
+      "train_time_sec": 117.6
+    },
+    "model_file": "DOM_lightgbm.pkl"
+  }
+]

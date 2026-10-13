@@ -36,7 +36,7 @@ datasets = {}      # region -> DataFrame
 models = {}        # (region, model_name) -> trained model
 all_metrics = {}   # region -> [{ model, metrics, ... }]
 
-print("[API] Loading datasets and models...")
+print("[API] Loading datasets and metrics...")
 
 for region_key in REGIONS:
     # Load processed data
@@ -53,15 +53,20 @@ for region_key in REGIONS:
     if os.path.exists(metrics_path):
         with open(metrics_path, 'r') as f:
             all_metrics[region_key] = json.load(f)
-    
-    # Load models
-    for model_name in MODEL_NAMES:
+
+def get_model(region_key: str, model_name: str):
+    """Lazily load model on demand to minimize memory usage for cloud deployment."""
+    key = (region_key, model_name)
+    if key not in models:
         model_filename = f"{region_key}_{model_name.lower().replace(' ', '_')}.pkl"
         model_path = os.path.join(MODELS_DIR, model_filename)
         if os.path.exists(model_path):
-            models[(region_key, model_name)] = joblib.load(model_path)
+            models[key] = joblib.load(model_path)
+        else:
+            return None
+    return models[key]
 
-print(f"[API] Loaded {len(datasets)} regions, {len(models)} models")
+print(f"[API] Loaded {len(datasets)} regions datasets and metrics successfully")
 
 
 # ─── Feature Helper ─────────────────────────────────────────────────
@@ -176,10 +181,12 @@ async def get_models(region: str):
     region_metrics = all_metrics.get(region, [])
     result = []
     for entry in region_metrics:
+        model_filename = f"{region}_{entry['model'].lower().replace(' ', '_')}.pkl"
+        is_available = os.path.exists(os.path.join(MODELS_DIR, model_filename))
         result.append({
             'name': entry['model'],
             'metrics': entry['metrics'],
-            'available': (region, entry['model']) in models,
+            'available': is_available,
         })
     return result
 
@@ -189,11 +196,12 @@ async def predict(req: PredictRequest):
     """Predict demand for a given region, date, hour, and model."""
     if req.region not in datasets:
         raise HTTPException(status_code=404, detail=f"Region '{req.region}' not found")
-    if (req.region, req.model) not in models:
+    
+    model = get_model(req.region, req.model)
+    if model is None:
         raise HTTPException(status_code=404, detail=f"Model '{req.model}' not found for region '{req.region}'")
     
     df = datasets[req.region]
-    model = models[(req.region, req.model)]
     
     target_dt = pd.to_datetime(f"{req.date} {req.hour:02d}:00:00")
     
@@ -277,9 +285,9 @@ async def compare_models(req: CompareRequest):
     
     results = []
     for model_name in MODEL_NAMES:
-        if (req.region, model_name) not in models:
+        model = get_model(req.region, model_name)
+        if model is None:
             continue
-        model = models[(req.region, model_name)]
         pred = float(model.predict(target_features)[0])
         
         region_metrics = all_metrics.get(req.region, [])
@@ -386,4 +394,5 @@ if os.path.exists(FRONTEND_DIR):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)

@@ -1,0 +1,62 @@
+[
+  {
+    "region": "COMED",
+    "model": "Linear Regression",
+    "metrics": {
+      "mae": 677.73,
+      "rmse": 952.3,
+      "r2": 0.811927,
+      "mape": 5.91,
+      "train_time_sec": 0.0
+    },
+    "model_file": "COMED_linear_regression.pkl"
+  },
+  {
+    "region": "COMED",
+    "model": "Random Forest",
+    "metrics": {
+      "mae": 611.65,
+      "rmse": 934.86,
+      "r2": 0.818751,
+      "mape": 5.18,
+      "train_time_sec": 327.2
+    },
+    "model_file": "COMED_random_forest.pkl"
+  },
+  {
+    "region": "COMED",
+    "model": "Gradient Boosting",
+    "metrics": {
+      "mae": 613.66,
+      "rmse": 914.26,
+      "r2": 0.826651,
+      "mape": 5.24,
+      "train_time_sec": 160.3
+    },
+    "model_file": "COMED_gradient_boosting.pkl"
+  },
+  {
+    "region": "COMED",
+    "model": "XGBoost",
+    "metrics": {
+      "mae": 607.57,
+      "rmse": 904.59,
+      "r2": 0.830299,
+      "mape": 5.19,
+      "train_time_sec": 15.5
+    },
+    "model_file": "COMED_xgboost.pkl"
+  },
+  {
+    "region": "COMED",
+    "model": "LightGBM",
+    "metrics": {
+      "mae": 610.21,
+      "rmse": 908.05,
+      "r2": 0.828999,
+      "mape": 5.21,
+      "train_time_sec": 42.9
+    },
+    "model_file": "COMED_lightgbm.pkl"
+  }
+]

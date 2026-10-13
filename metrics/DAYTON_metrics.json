@@ -1,0 +1,62 @@
+[
+  {
+    "region": "DAYTON",
+    "model": "Linear Regression",
+    "metrics": {
+      "mae": 123.05,
+      "rmse": 159.07,
+      "r2": 0.821067,
+      "mape": 6.16,
+      "train_time_sec": 0.0
+    },
+    "model_file": "DAYTON_linear_regression.pkl"
+  },
+  {
+    "region": "DAYTON",
+    "model": "Random Forest",
+    "metrics": {
+      "mae": 106.22,
+      "rmse": 142.47,
+      "r2": 0.856469,
+      "mape": 5.27,
+      "train_time_sec": 283.5
+    },
+    "model_file": "DAYTON_random_forest.pkl"
+  },
+  {
+    "region": "DAYTON",
+    "model": "Gradient Boosting",
+    "metrics": {
+      "mae": 105.28,
+      "rmse": 140.03,
+      "r2": 0.861339,
+      "mape": 5.24,
+      "train_time_sec": 226.9
+    },
+    "model_file": "DAYTON_gradient_boosting.pkl"
+  },
+  {
+    "region": "DAYTON",
+    "model": "XGBoost",
+    "metrics": {
+      "mae": 104.99,
+      "rmse": 139.68,
+      "r2": 0.86203,
+      "mape": 5.23,
+      "train_time_sec": 23.4
+    },
+    "model_file": "DAYTON_xgboost.pkl"
+  },
+  {
+    "region": "DAYTON",
+    "model": "LightGBM",
+    "metrics": {
+      "mae": 106.4,
+      "rmse": 140.63,
+      "r2": 0.860143,
+      "mape": 5.31,
+      "train_time_sec": 50.7
+    },
+    "model_file": "DAYTON_lightgbm.pkl"
+  }
+]
